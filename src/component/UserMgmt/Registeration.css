@@ -1,0 +1,124 @@
+/* Add padding to containers */
+.form{
+  height:100%;
+  width:100%;
+}
+.container {
+  padding: 16px;
+  border: 1px solid transparent;
+  background: #006666;
+  border-radius: 6px !important;
+  margin: auto;
+  max-width: 30%;
+  height: 70%;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 97%;
+  padding: 10px;
+  border: none;
+  margin-left: 6px;
+  box-sizing: border-box;
+  outline:none;
+}
+input[type=button]
+{
+  margin-top: 10%;
+    float: left;
+    margin: auto;
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    width: 29%;
+    padding: 7px;
+    outline:none;
+    cursor:pointer;
+    background-color: chocolate;
+}
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  /*background-color: #f1f1f1;*/
+  text-align: center;
+}
+.formsection
+{
+  list-style: none;
+}
+.lidiv
+{
+  border-radius: 6px;
+    background-color: white;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 10%;
+    width: 80%;
+    box-sizing: border-box;
+  
+}
+.divflex
+{
+  display: flex;
+  width: 80%;
+}
+div{
+  color:white;
+}
+.formsection2
+{
+  list-style: none;
+}
+.labelcolor2
+{
+  color:chocolate !important;
+  cursor: pointer;
+}
+.divpadding
+{
+  padding-left: 10%;
+  
+}
+.labelcolor1
+{
+  color:white !important;
+}
+.divmargin
+{
+  margin-bottom:1%;
+}
+.divlabel
+{
+    text-align: center;
+    padding-right: 20%;
+    margin-bottom: 1%;
+    font-size: 21px;
+}
+.divimg1
+{
+  margin-left: 21%;
+}

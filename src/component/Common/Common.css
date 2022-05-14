@@ -1,0 +1,61 @@
+
+.common-divheight
+{
+    height: 100%;
+}
+.common-header-right-component
+{
+    width: 50%;
+    float: right;
+    height: 100%;
+}
+.common-header-right-component-right
+{
+    width: 50%;
+    float: right;
+    height: 100%;
+}
+.common-header-right-component-right-right{
+    background: white;
+    border-radius: 43px;
+    width: 15%;
+    float: right;
+    height: 65%;
+    margin-top: 2%;
+    margin-right: 7%;
+    color:black;
+    cursor: pointer;
+}
+.common-header
+{
+    width: 100%;
+    height: 7%;
+    background-color: #006666;
+    /* border-bottom: 1px solid; */
+}
+.common-header-left-component
+{
+    width: 50%;
+    display: flex;
+    float:left;
+    margin-top: 1%;
+}
+.common-image-height
+{
+    height:75%;
+    cursor: pointer;
+}
+.common-float-right
+{
+    float:right;
+    top: 7%;
+    position: relative;
+    left: 11%;
+}
+.lbl-logout
+{
+    color: black;
+    position: relative;
+    top: 12px;
+    left: 9px;
+}

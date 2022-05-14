@@ -1,0 +1,122 @@
+.inv-content
+{
+    background-color: white;
+    width: 65%;
+    height: 77%;
+    border: 1px solid #CACACA;
+    box-shadow: 0 0 4px rgb(0 0 0 / 10%);
+    margin: 2% 16%;
+}
+.inv-label
+{
+    color: black;
+    margin-left: 7%;
+}
+.inv-wdthgt
+{
+    width: 100%;
+    height:25%;
+} 
+
+/* div .inv-wdthgt::After {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 41%;
+    width: 44%;
+    left: 32%;
+    border-top: 2px solid black;
+} */
+.inv-width
+{
+    width: 20%;
+    height:100%;
+}
+.inv-margin
+{
+    margin-top: 1%;
+    margin-left:1%;
+    height:6%;
+    width:100%;
+}
+.inv-float-left
+{
+    float: left;
+}
+.inv-textalign-left
+{
+    text-align: left;
+}
+.inv-margin-2
+{
+    margin-top: 6%;
+    margin-left:1%;
+}
+.inv-input
+{
+    border: 1px solid transparent !important;
+    background-color: #f1f1f1;
+}
+.inv-img
+{
+    max-height: 100%;
+    max-width: 100%;
+    bottom: 22%;
+    position: relative;
+}
+.inv-height-items
+{
+    height:55%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.inv-height-total
+{
+    height: 6%;
+    color: black !important;
+    background-color: lightgrey;
+}
+.inv-float-right
+{
+    float: right;
+}
+.inv-divlabel
+{
+    text-align: center;
+    margin-top: 1%
+}
+.in-label-total
+{
+    margin-right:7%;
+}
+.inv-border
+{
+    margin-top: 1%;
+    border-bottom: 2px solid black;
+}
+.inv-printbutton
+{
+    float:left;
+    height:100%;
+    width:15%;
+    background-color: chocolate;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 3px;
+    
+}
+.inv-footer-right
+{
+    width:60%;
+    height: 100%;
+    line-height: 30px;
+}
+.inv-label-button
+{
+    cursor: pointer !important;
+}
+.inv-margin-right
+{
+    margin-right:2%;
+}
