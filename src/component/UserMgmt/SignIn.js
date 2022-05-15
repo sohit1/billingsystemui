@@ -1,6 +1,7 @@
 import './Registeration.css';
 import { useState } from 'react';
 import GoogleImg from '../../images/login-with-google.png';
+import config from '../../config.json';
 
 function SignIn(props) {
     const [emailState, setEmailState] = useState("");
@@ -33,26 +34,39 @@ function SignIn(props) {
 
 
         const data = {
-            passState
+            "userName":emailState,
+            "password":passState
         };
-        props.IsSignIn("MasterLanding");
-        // fetch("https://localhost:44389/user/userdetails?psUserName=" + emailState,
-        //     {
-        //         method: 'POST',
-        //         body: JSON.stringify(passState),
-        //         headers:{
-        //             'Content-Type' : "application/json"
-        //         }           
-        //     }).then((response) => {
-        //         if (response.status != 200) {
-        //             alert("Something went wrong");
-        //             console.log("Error : " + response.status);
-        //             return;
-        //         }
-        //         response.json().then((data) => {
-        //             props.IsSignIn("MasterLanding");
-        //         });
-        //     });
+        console.log(config.WEBAPI_URL);
+        fetch(config.WEBAPI_URL+"user/login",
+            {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers:{
+                    'Content-Type' : "application/json"
+                }           
+            }).then((response) => {
+                if (response.status != 200) {
+                    alert("Something went wrong");
+                    console.log("Error : " + response.status);
+                    return;
+                }
+                response.json().then((data) => {
+                    if(data.responseStatus != null)
+                    {
+                        if(data.responseStatus.errorNo != 0)
+                        {
+                            alert(data.responseStatus.errorMessage);
+                            return;
+                        }
+                        
+                    }
+
+                    props.IsSignIn("MasterLanding");
+                    
+                    
+                });
+            });
 
     }
     return (

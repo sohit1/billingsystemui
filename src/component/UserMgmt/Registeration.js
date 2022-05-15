@@ -68,7 +68,7 @@ function Registeration(props) {
             <div className="container">
                 <ul className="formsection">
                     <li>
-                        <div className="">
+                        <div className="regdivflex">
                             <h1>Register</h1>
                             <p>Please fill in this form to create an account.</p>
                         </div>
@@ -86,7 +86,7 @@ function Registeration(props) {
                 </ul>
                 <ul className='formsection2'>
                     <li>
-                        <div className="">
+                        <div className="divterms">
                             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
                         </div>
                     </li>

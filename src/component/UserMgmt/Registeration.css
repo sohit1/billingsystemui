@@ -68,7 +68,9 @@ hr {
 }
 .formsection
 {
-  list-style: none;
+  list-style: none;    
+  margin: 16px;
+  padding: 40px;
 }
 .lidiv
 {
@@ -85,13 +87,21 @@ hr {
 {
   display: flex;
   width: 80%;
+  margin-bottom: 5%;
+}
+.regdivflex
+{
+  width: 80%;
+  margin-bottom: 5%;
 }
 div{
   color:white;
 }
 .formsection2
 {
-  list-style: none;
+  list-style: none;    
+  margin: 16px;
+  padding: 40px;
 }
 .labelcolor2
 {
@@ -121,4 +131,13 @@ div{
 .divimg1
 {
   margin-left: 21%;
+}
+
+h1{
+  font-weight: bold;
+    font-size: 25px;
+}
+.divterms
+{
+  margin-bottom: 5%;
 }
