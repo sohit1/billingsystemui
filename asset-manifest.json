@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/newbillingsystemui/static/css/main.015832cc.css",
+    "main.js": "/newbillingsystemui/static/js/main.2824640b.js",
+    "static/media/GenerateBill.png": "/newbillingsystemui/static/media/GenerateBill.bd95ed5d4a92f75aa193.png",
+    "static/media/Add-button.png": "/newbillingsystemui/static/media/Add-button.98945888d29c615ecb21.png",
+    "index.html": "/newbillingsystemui/index.html",
+    "main.015832cc.css.map": "/newbillingsystemui/static/css/main.015832cc.css.map",
+    "main.2824640b.js.map": "/newbillingsystemui/static/js/main.2824640b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.015832cc.css",
+    "static/js/main.2824640b.js"
+  ]
+}
