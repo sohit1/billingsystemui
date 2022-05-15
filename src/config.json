@@ -1,3 +1,3 @@
 {
-    "WEBAPI_URL": "https://localhost:44330/"
+    "WEBAPI_URL": "https://billingwebapi.herokuapp.com/"
 }

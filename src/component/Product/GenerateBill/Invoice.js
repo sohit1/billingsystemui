@@ -48,48 +48,54 @@ const Invoice = () => {
     });
     const AddRowHandler = () => {
 
+        //Adding row of item to mylist
         setmylists((prevmylist) => {
-            return (prevmylist.concat({ id: Date.now(), amount: "",PricePerUnit:"",Quantity: 0,ItemName:"",ItemsDetail:"", ...prevmylist }));
-        }
-        );
+            return (prevmylist.concat({ id: Date.now(),itemId:0, totalItemAmount: 0,pricePerUnit:"",quantity: 0, ...prevmylist }));
+        });
 
     }
     const getTotalAmountHandler = () => {
 
     }
-    const onQuantityChangeHandler = (value, id, PricePerUnit,ItemName,Quantity) => {
+    const onQuantityChangeHandler = (p_value, p_id,p_itemId, p_pricePerUnit,p_Quantity,p_Flag) => {
 
         const newData = mylist.map(data => {
 
-            if (data.id !== id) {
-                return data;
-            }
-            if (ItemName !== undefined)
+            //add new row of item
+            if (data.id == p_id) { //should change only for the rows getting updated.
+                if(p_Flag == 'OnItemChange')
             {
                 return {
-                    ...data, amount: value,PricePerUnit: PricePerUnit, ItemName: ItemName
+                    ...data,totalItemAmount: parseInt(p_value),itemId:parseInt(p_itemId),pricePerUnit:parseInt(p_pricePerUnit),quantity: parseInt(p_Quantity)
                 };
             }
             else
             {
                 return {
-                    ...data, amount: value,Quantity: Quantity
-                };
+                            ...data, totalItemAmount: parseInt(p_value),quantity: parseInt(p_Quantity)
+                        };
             }
+        }
+        return data;
            
 
 
         });
         setmylists(newData);
-        const sum = newData.map(values => values.amount).reduce((result, number) => result + number);
+        const sum = newData.map(values => values.totalItemAmount).reduce((result, number) => result + number);
         setTotal(sum);
     }
     const saveItemsAndPrintInvoice = () => {
+        var data =
+        {
+            "invoiceNo":0,
+            "invoiceDetails":mylist
+        }
 
-        fetch("https://localhost:44389/Invoice/SaveInvoiceDetails",
+        fetch(config.WEBAPI_URL+"invoice/generateinvoice",
         {
             method: 'POST',
-            body: JSON.stringify(mylist),
+            body: JSON.stringify(data),
             headers:{
                 'Content-Type' : "application/json"
             }           
@@ -100,7 +106,7 @@ const Invoice = () => {
                 return;
             }
             response.json().then((data) => {
-                
+                alert("invoice generate: #"+data.invoiceNo)
             });
         });
     }
