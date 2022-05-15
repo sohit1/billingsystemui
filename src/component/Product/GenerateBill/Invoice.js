@@ -3,8 +3,12 @@ import { useState } from 'react'
 import Item from './Item'
 import AddIcon from '../../../images/Add-button.png'
 import InvoiceHeader from './InvoiceHeader';
+import config from '../../../config.json'
 
 const mylists = [
+];
+const MenuItem =[
+
 ];
 const InvoiceHeaderList =[
     {
@@ -16,7 +20,32 @@ const InvoiceHeaderList =[
 const Invoice = () => {
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
+    const [MenuItem, getMenuItems] = useState([]);
     
+    useState(()=>
+    {
+         fetch(config.WEBAPI_URL+"product/getitems",
+            {
+                method: 'GET',
+                headers:{
+                    'Content-Type' : "application/json"
+                }           
+            }).then((response) => {
+                if (response.status != 200) {
+                    alert("Something went wrong");
+                    console.log("Error : " + response.status);
+                    return;
+                }
+                response.json().then((data) => {
+                    if(data.responseStatus.errorNo != 0)
+                        {
+                            alert(data.responseStatus.errorMessage);
+                            return;
+                        }
+                    getMenuItems(data.itemInfo);
+                });
+            });
+    });
     const AddRowHandler = () => {
 
         setmylists((prevmylist) => {
@@ -96,7 +125,7 @@ const Invoice = () => {
                 </div>
             </div>
             <div className='inv-height-items'>
-                {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} />)}
+                {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} MenuData ={MenuItem} />)}
             </div>
             <div className='inv-height-total'>
                 <div className='inv-printbutton' onClick={saveItemsAndPrintInvoice}>

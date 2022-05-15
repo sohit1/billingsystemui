@@ -1,5 +1,6 @@
 import './Item.css';
 import { useState } from 'react'
+import config from '../../../config.json'
 
 const Item = (props) => {
     const[priceperunit, setpriceperunit]  = useState('0');
@@ -12,33 +13,10 @@ const Item = (props) => {
     ]);
     useState(()=>
     {
-        //Later implementation Items will be fetched with the mapped company id;
-
-        // We will write fetch api to get the data console.log("initial state");
-         fetch("https://localhost:44389/Product/getSellableItems?pnCompanyId=12",
-            {
-                method: 'GET',
-                headers:{
-                    'Content-Type' : "application/json"
-                }           
-            }).then((response) => {
-                if (response.status != 200) {
-                    alert("Something went wrong");
-                    console.log("Error : " + response.status);
-                    return;
-                }
-                response.json().then((data) => {
-                    console.log((JSON.stringify(data)));
-                    console.log(((data)));
-                    setMenuItems((prevstate)=>
+            setMenuItems((prevstate)=>
                     {
-                        console.log((prevstate.concat({itemName: "Select item", nAmount: 0 ,sItemId:"0000"}, ...data )));
-                        return (prevstate.concat({itemName: "Select item", pricePerUnit: 0 ,itemId:"0000"}, ...data ));
+                        return (prevstate.concat({itemName: "Select item", pricePerUnit: 0 ,itemId:"0000"}, ...props.MenuData ));
                     });
-                });
-            });
-
-        //setMenuItems(listItems);
     });
     const QyantityHandler =(event) =>
     {
