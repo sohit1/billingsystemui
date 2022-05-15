@@ -33,7 +33,7 @@ const Item = (props) => {
         }
         setQuantity(event.target.value);
         setAmount(priceperunit * event.target.value);
-        props.onQuantityChange(priceperunit * event.target.value , props.itemsId,undefined,undefined,event.target.value);
+        props.onQuantityChange(priceperunit * event.target.value ,props.itemsId,0,priceperunit,event.target.value,'OnQunatityChange');
     }
     const validateNumeric=(value)=>
     {
@@ -46,9 +46,12 @@ const Item = (props) => {
     const selectItemHandler=(event)=>
     {
         var itemDetails = event.target.value.split("_") ;
-        setpriceperunit(itemDetails[1]);
-        setAmount(itemDetails[1] * Quantity);
-        props.onQuantityChange(itemDetails[1] * Quantity , props.itemsId,itemDetails[1],itemDetails[0]+"_"+itemDetails[2]);
+        var itemId = itemDetails[0];
+        var pricePerUnit = itemDetails[1];
+        var itemTotalAmount = pricePerUnit * Quantity;
+        setpriceperunit(pricePerUnit);
+        setAmount(itemTotalAmount);
+        props.onQuantityChange(itemTotalAmount , props.itemsId,itemId,pricePerUnit,Quantity,'OnItemChange');
     }
 
     return (
