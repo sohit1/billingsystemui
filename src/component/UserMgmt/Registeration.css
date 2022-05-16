@@ -74,9 +74,9 @@ hr {
 }
 .lidiv
 {
-  border-radius: 6px;
+    /* border-radius: 6px;
     background-color: white;
-    border: none;
+    border: none; */
     margin-top: 0px;
     margin-bottom: 10%;
     width: 80%;
@@ -140,4 +140,49 @@ h1{
 .divterms
 {
   margin-bottom: 5%;
+}
+.lidiv input{
+  border-radius: 6px;
+}
+@media (max-width: 360px) 
+{
+    .mbcontainer
+    {
+        max-width: 86% !important;
+    }
+    h1{
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .formsection
+    {
+      list-style:none;
+      margin: 0.01em;
+      padding: 0.01em;
+
+    }
+    .lidiv
+    {
+      width:100%;
+    }
+    .divflex
+    {
+      width:100% !important;
+      
+    }
+    .divlabel{
+      padding-right:0% !important;
+    }
+    p{
+      font-size: 15px;
+      margin-top:10%;
+    }
+    .formsection2
+    {
+      list-style:none;
+      margin: 0.01em;
+      padding: 0.01em;
+
+    }
+
 }

@@ -120,3 +120,19 @@
 {
     margin-right:2%;
 }
+@media (max-width: 360px) 
+{
+    .inv-content
+    {
+        width: 98%;
+       margin:0px 0px;
+    }
+    .inv-width{
+        font-size: 15px;
+        width:25%;
+    }
+    .mbdisplaynone
+    {
+        display: none;
+    }
+}

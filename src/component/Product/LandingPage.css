@@ -31,19 +31,22 @@
 .dvSignIn
 {
     margin-right: 4%;
-    padding-left: 60%;
-    width: 50%;
+    /* padding-left: 60%; */
+    /* width: 50%; */
+    width: 86%;
     height: 50%;
     text-align: right;
     line-height: 28px;
     color: white !important;
+    display: inline-block;
 }
+
 .header-right-component-right
 {
     width:100%;
     float:right;
     margin-right: 4%;
-    display: flex;
+    /* display: flex; */
     height:100%;
 }
 .content{
@@ -61,12 +64,14 @@
 .dvSignUp
 {
     background-color: chocolate;
-    width: 50%;
+    /* width: 50%; */
+    width: 10%;
     text-align: center;
     height: 50%;
     line-height: 28px;
     border-radius: 10px;
     color: white !important;
+    display: inline-block;
     
 }
 .labelcolor
@@ -74,4 +79,18 @@
     color: white !important;
     cursor:pointer;
 }
+@media (max-width: 360px) {
+    .mbdvSignIn
+    {
+        width: 56%;
+    }
+    .mbdvSignUp
+{
+    width: 40%;
+    
+}
+
+
+    
+  }
 

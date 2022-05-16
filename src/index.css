@@ -1,12 +1,13 @@
 
 html,body{
-    margin: 0%;
+    /* margin: 0%; */
     height:100%;
 }
 .bodyclass
 {
     background-color: grey;
     overflow: hidden;
+    margin: 0.01%;
 }
 label
 {

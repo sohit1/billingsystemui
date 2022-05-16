@@ -38,8 +38,23 @@ img
     border-radius: 52px;
     font-size: 28px;
     cursor: pointer;
+   
+    
 }
 .labelcolor
 {
     color: white !important;
+}
+
+@media (max-width: 360px) 
+{
+    .mbdivbutton1
+    {
+        height: 7%;
+        width: 74%;
+        margin-left: 15%;
+        text-align: center;
+        line-height: 44px;
+        font-size: 13px;
+    }
 }

@@ -120,7 +120,7 @@ const Invoice = () => {
                 <div className='inv-width inv-float-left inv-textalign-left'>
                     <label className="inv-label">Quantity</label>
                 </div>
-                <div className='inv-width inv-float-left inv-textalign-left'>
+                <div className='inv-width inv-float-left inv-textalign-left mbdisplaynone'>
                     <label className="inv-label">PricePerUnit</label>
                 </div>
                 <div className='inv-width inv-float-left inv-textalign-left'>
