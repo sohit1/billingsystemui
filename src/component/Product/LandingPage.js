@@ -38,14 +38,14 @@ function LandingPage(props) {
                 </div>
                 <div className="header-right-component">
                     <div className="header-right-component-right">
-                        <div className="dvSignIn">
+                        <div className="dvSignIn mbdvSignIn">
                             <label className='labelcolor' onClick={Showsignin}>
                                 {/* <a href="#" onClick={Showsignin}> */}
                                     Login
                                {/* </a>  */}
                             </label>
                         </div>
-                        <div className="dvSignUp">
+                        <div className="dvSignUp mbdvSignUp">
                             <label className='labelcolor' onClick={Showsignup}>
                                 {/* <a href="#" onClick={Showsignup}> */}
                                     Register

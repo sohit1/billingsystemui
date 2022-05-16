@@ -66,7 +66,7 @@ const Item = (props) => {
             <div className='itm-width itm-float-left itm-textalign-left'>
                 <input onChange={QyantityHandler} className="itm-input" type="text" name="Quantity"></input>
             </div>
-            <div className='itm-width itm-float-left itm-textalign-left'>
+            <div className='itm-width itm-float-left itm-textalign-left mbdisplaynone'>
                 <label className="itm-label">{priceperunit}</label>
             </div>
             <div className='itm-width itm-float-left itm-textalign-left'>

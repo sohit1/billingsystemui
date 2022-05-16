@@ -11,7 +11,7 @@ const ProductCatalog = (props) => {
                 <div className=''>
                     <img src={BillingImg} alt="billingimage"></img>
                 </div>
-                <div onClick={startBillingHandler} className='divbutton1'>
+                <div onClick={startBillingHandler} className='divbutton1 mbdivbutton1'>
                     <label className='labelcolor'>Start billing</label>
                 </div>
             </div>
@@ -19,7 +19,7 @@ const ProductCatalog = (props) => {
                 <div className=''>
                     <img src={BillingImg} alt="billingimage"></img>
                 </div>
-                <div onClick={startBillingHandler} className='divbutton1'>
+                <div onClick={startBillingHandler} className='divbutton1 mbdivbutton1'>
                     <label className='labelcolor'>Employee ledger</label>
                 </div>
             </div>

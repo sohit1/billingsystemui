@@ -65,7 +65,7 @@ function Registeration(props) {
 
     return (
         <form className="form">
-            <div className="container">
+            <div className="container mbcontainer">
                 <ul className="formsection">
                     <li>
                         <div className="regdivflex">
