@@ -1,3 +1,12 @@
 {
-    "WEBAPI_URL": "https://billingwebapi.herokuapp.com/"
+    "WEBAPI_URL": "https://billingwebapi.herokuapp.com/",
+    "BUSINESS_TITLE":
+    {
+        "NAME":"New Jai Bajrang Tourist And Family Dhawa",
+        "AREA":"Attamanda",
+        "DISTRICT":"Bareilly",
+        "CITY":"Bareilly",
+        "STATE":"Uttar Pradesh",
+        "PINCODE":"243002"
+    }
 }

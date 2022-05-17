@@ -10,13 +10,6 @@ const mylists = [
 const MenuItem =[
 
 ];
-const InvoiceHeaderList =[
-    {
-        businessName : "Jb pvt ltd",
-        businessAddressLine1: "Propert No., City",
-        businessAddressLine2: "Near landmark, State, Pincode"
-    }
-];
 const Invoice = () => {
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
@@ -112,7 +105,7 @@ const Invoice = () => {
     }
     return (
         <div className="inv-content">
-            <InvoiceHeader getBusinessInfo={InvoiceHeaderList}></InvoiceHeader>
+            <InvoiceHeader></InvoiceHeader>
             <div className='inv-margin'>
                 <div className='inv-width inv-float-left inv-textalign-left'>
                     <label className="inv-label">Item</label>

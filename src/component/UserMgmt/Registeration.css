@@ -130,7 +130,7 @@ div{
 }
 .divimg1
 {
-  margin-left: 21%;
+  margin-left: 25%;
 }
 
 h1{
@@ -143,6 +143,11 @@ h1{
 }
 .lidiv input{
   border-radius: 6px;
+}
+.loading
+{
+    margin-top: 10%;
+    margin-left: 17%;
 }
 @media (max-width: 360px) 
 {
@@ -184,5 +189,10 @@ h1{
       padding: 0.01em;
 
     }
+   .loading
+{
+    margin-top: 5%;
+    margin-left: 27%;
+}
 
 }

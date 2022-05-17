@@ -2,7 +2,6 @@ import BillingImg from '../../images/GenerateBill.png';
 const ProductCatalog = (props) => {
     const startBillingHandler=()=>
     {
-        console.log("startBillingHandler");
         props.IsProductCatalog("Register");
     }
     return (

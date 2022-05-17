@@ -6,6 +6,7 @@ import config from '../../config.json';
 function SignIn(props) {
     const [emailState, setEmailState] = useState("");
     const [passState, setPassState] = useState("");
+    const [showLoading, setLoading] = useState(false);
 
     const captureEmailHandler = (event) => {
         setEmailState(event.target.value);
@@ -32,12 +33,12 @@ function SignIn(props) {
             return;
         }
 
-
+        
         const data = {
             "userName":emailState,
             "password":passState
         };
-        console.log(config.WEBAPI_URL);
+        setLoading('True');
         fetch(config.WEBAPI_URL+"user/login",
             {
                 method: 'POST',
@@ -46,12 +47,14 @@ function SignIn(props) {
                     'Content-Type' : "application/json"
                 }           
             }).then((response) => {
+                setLoading('False');
                 if (response.status != 200) {
                     alert("Something went wrong");
                     console.log("Error : " + response.status);
                     return;
                 }
                 response.json().then((data) => {
+                    setLoading('False');
                     if(data.responseStatus != null)
                     {
                         if(data.responseStatus.errorNo != 0)
@@ -61,7 +64,7 @@ function SignIn(props) {
                         }
                         
                     }
-
+                    localStorage.setItem('token-info', JSON.stringify(data));
                     props.IsSignIn("MasterLanding");
                     
                     
@@ -81,7 +84,7 @@ function SignIn(props) {
                     </li>
                     <li>
                         <div className="lidiv">
-                            <input type="text" onChange={captureEmailHandler} placeholder="Enter Email" name="email" id="email" required></input>
+                            <input type="text" onChange={captureEmailHandler} placeholder="Enter Email or Mobile no" name="email" id="email" required></input>
                         </div>
                     </li>
                     <li>
@@ -103,6 +106,13 @@ function SignIn(props) {
                         <div className='divimg1'>
                             <img src={GoogleImg} alt="billingimage"></img>
                         </div>
+                        {
+                            showLoading && 
+                            <div className="loading">
+                                <h1>Please wait, loading . . .</h1>
+                            </div>
+                        }
+                        
                     </li>
                 </ul>
             </div>

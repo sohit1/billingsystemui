@@ -5,22 +5,45 @@ import MasterLanding from './component/Common/MasterLanding.js';
 
 function App() {
   const [State,setState] = useState("LandingPage");
+  const [IsLoggedIn,setIsLoggedIn] = useState(false);
 
-  const AppChangeState =(parameter) =>
+  const fnSetIsLoggedIn =(param)=>
   {
-    setState(parameter);
-  }
-
-  return (
-    <div className= "divheight">
-      { State == "LandingPage" &&
-        <LandingPage IsLandingPage = {AppChangeState} />
-      }
-      {State == "MasterLanding" && 
-        <MasterLanding IsMasterPage = {AppChangeState} />
+    const token = localStorage.getItem('token-info');
+    if(token != " ")
+    {
+      setIsLoggedIn(true);
+    }
+    else
+      {
+        setIsLoggedIn(false);
       }
       
-    </div>
+  }
+  const AppChangeState =(parameter) =>
+  {
+    fnSetIsLoggedIn();
+    setState(parameter);
+  }
+  useState(state =>
+    {
+      fnSetIsLoggedIn();
+    });
+  return (
+      <div className= "divheight">
+      {
+        IsLoggedIn && 
+         <MasterLanding IsMasterPage = {AppChangeState} />     
+      }
+      { 
+      (State == "LandingPage")  &&
+        <LandingPage IsLandingPage = {AppChangeState} />
+      }
+      {(State == "MasterLanding") && 
+         <MasterLanding IsMasterPage = {AppChangeState} />
+      }
+
+      </div>
     
   );
 }
