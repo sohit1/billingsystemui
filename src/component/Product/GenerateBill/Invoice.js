@@ -99,7 +99,8 @@ const Invoice = () => {
                 return;
             }
             response.json().then((data) => {
-                alert("invoice generate: #"+data.invoiceNo)
+                setmylists([]);
+                alert("Generated Invoice: #"+data.invoiceNo)
             });
         });
     }
