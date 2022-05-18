@@ -5,8 +5,8 @@ const MainHeader = (props) => {
     const logout = () =>
     {
         localStorage.setItem('token-info'," ");
-        console.log('logout');
-        console.log('log-out  token-info:' +localStorage.getItem("token-info"))
+        localStorage.setItem('login-time'," ");
+       // localStorage.clear();
         props.IsLogout("true")
     }
     return (
@@ -20,7 +20,7 @@ const MainHeader = (props) => {
                 <div className="common-header-right-component-right">
                     <div className="common-header-right-component-right-right">
                         <div className='common-divheight'>
-                            <lable className="lbl-logout" onClick={logout}>Log out</lable>
+                            <label className="lbl-logout" onClick={logout}>Log out</label>
                             {/* <img className='common-image-height common-float-right' src ={profilepic}/> */}
                         </div>
                     </div>
