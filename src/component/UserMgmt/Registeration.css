@@ -147,7 +147,7 @@ h1{
 .loading
 {
     margin-top: 10%;
-    margin-left: 17%;
+    margin-left: 12%;
 }
 @media (min-width:360px) and (max-width: 460px) 
 {
@@ -190,9 +190,9 @@ h1{
 
     }
    .loading
-{
+  {
     margin-top: 5%;
     margin-left: 27%;
-}
+  }
 
 }

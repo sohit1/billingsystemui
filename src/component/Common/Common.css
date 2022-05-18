@@ -18,7 +18,7 @@
 .common-header-right-component-right-right{
     background: white;
     border-radius: 43px;
-    width: 15%;
+    width: 22%;
     float: right;
     height: 65%;
     margin-top: 2%;
@@ -56,14 +56,21 @@
 {
     color: black;
     position: relative;
-    top: 12px;
-    left: 9px;
+    top: 5px;
+    left: 11px;
+    cursor:pointer;
 }
 @media (min-width:360px) and (max-width: 460px) 
 {
-.common-header-right-component-right-right
-{
-    margin-top:7%;
-    width:100%;
-}
+    .lbl-logout
+    {
+        top: 12px;
+        left: 9px;
+        
+    }
+    .common-header-right-component-right-right
+    {
+        margin-top:7%;
+        width:64%;
+    }
 }
