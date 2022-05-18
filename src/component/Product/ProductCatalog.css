@@ -46,7 +46,7 @@ img
     color: white !important;
 }
 
-@media (max-width: 411px) 
+@media (min-width:360px) and (max-width: 460px)
 {
     .mbdivbutton1
     {

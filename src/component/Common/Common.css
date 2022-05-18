@@ -59,7 +59,7 @@
     top: 12px;
     left: 9px;
 }
-@media (max-width: 411px) 
+@media (min-width:360px) and (max-width: 460px) 
 {
 .common-header-right-component-right-right
 {
