@@ -26,7 +26,6 @@ const Invoice = () => {
             }).then((response) => {
                 if (response.status != 200) {
                     alert("Something went wrong");
-                    console.log("Error : " + response.status);
                     return;
                 }
                 response.json().then((data) => {
@@ -90,12 +89,12 @@ const Invoice = () => {
             method: 'POST',
             body: JSON.stringify(data),
             headers:{
-                'Content-Type' : "application/json"
+                'Content-Type' : "application/json",
+                'Authorization': "Bearer "+localStorage.getItem('token-info')
             }           
         }).then((response) => {
             if (response.status != 200) {
                 alert("Something went wrong");
-                console.log("Error : " + response.status);
                 return;
             }
             response.json().then((data) => {

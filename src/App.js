@@ -11,26 +11,15 @@ function App() {
   {
     const token = localStorage.getItem('token-info');
     var loggedin = false;
-    let adsj = localStorage.getItem('login-time');
-    console.log('asdasdasd' + adsj);
     if(localStorage.getItem('login-time') !== " ")
     {
       loggedin = true;
       var currentmins = parseInt(new Date().getHours())*60 + parseInt(new Date().getMinutes())
-      console.log('currentmin: '+currentmins);
-      console.log('loggedin: '+localStorage.getItem('login-time')*60);
       
       if(currentmins - parseInt(localStorage.getItem('login-time'))*60 > 60)
       {
         loggedin = false;
-        console.log('getTime:   '+localStorage.getItem('login-time'));
-      }
-      // if(new Date().getHours() - localStorage.getItem('login-time') > 2)
-      // {
-      //   loggedin = false;
-      //   console.log('getTime:   '+localStorage.getItem('login-time'));
-      // }
-      
+      }    
     }
     
   

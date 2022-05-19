@@ -44,7 +44,6 @@ function Registeration(props) {
         //     }).then((response) => {
         //         if (response.status != 200) {
         //             alert("Something went wrong");
-        //             console.log("Error : " + response.status);
         //             return;
         //         }
         //         response.json().then((data) => {
