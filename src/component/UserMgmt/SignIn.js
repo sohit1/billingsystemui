@@ -66,7 +66,7 @@ function SignIn(props) {
                     let date = new Date();
                     let hours = date.getHours();
                     localStorage.setItem('token-info', data.token);
-                    localStorage.setItem('login-time', hours);
+                    localStorage.setItem('login-time', hours*60);
                     props.IsSignIn("MasterLanding");
                     
                     
