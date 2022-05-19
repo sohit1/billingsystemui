@@ -1,9 +1,10 @@
 import './invoice.css';
 import { useState } from 'react'
+import {useEffect} from 'react'
 import Item from './Item'
 import AddIcon from '../../../images/Add-button.png'
 import InvoiceHeader from './InvoiceHeader';
-import config from '../../../config.json'
+import config from '../../../config.json';
 
 const mylists = [
 ];
@@ -14,7 +15,7 @@ const Invoice = () => {
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
     const [MenuItem, getMenuItems] = useState([]);
-    
+
     useState(()=>
     {
          fetch(config.WEBAPI_URL+"product/getitems",
@@ -77,7 +78,40 @@ const Invoice = () => {
         const sum = newData.map(values => values.totalItemAmount).reduce((result, number) => result + number);
         setTotal(sum);
     }
+    const ValidateIsEmpty = (value) => {
+        if (value === undefined || value === "")
+            return true;
+
+        return false;
+    }
     const saveItemsAndPrintInvoice = () => {
+        let breturned = false;
+        mylist.forEach(element => {
+            if(ValidateIsEmpty(element.quantity))
+            {
+                alert("quantity can not be empty.");
+                breturned = true;
+                return;
+            }
+            if(element.quantity === 0)
+            {
+                alert("quantity can not be 0.");
+                breturned = true;
+                return;
+            }
+            if(element.itemId === 0)
+            {
+                alert("Please select item")
+                breturned = true;
+                return;
+            }
+
+            
+        });
+        if(breturned)
+        {
+            return;
+        }
         var data =
         {
             "invoiceNo":0,
