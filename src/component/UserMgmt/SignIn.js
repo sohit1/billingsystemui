@@ -50,7 +50,6 @@ function SignIn(props) {
                 setLoading('False');
                 if (response.status != 200) {
                     alert("Something went wrong");
-                    console.log("Error : " + response.status);
                     return;
                 }
                 response.json().then((data) => {
@@ -66,7 +65,7 @@ function SignIn(props) {
                     }
                     let date = new Date();
                     let hours = date.getHours();
-                    localStorage.setItem('token-info', JSON.stringify(data));
+                    localStorage.setItem('token-info', data.token);
                     localStorage.setItem('login-time', hours);
                     props.IsSignIn("MasterLanding");
                     
