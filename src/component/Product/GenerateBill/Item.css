@@ -12,6 +12,7 @@
 {
     color: black;
     margin-left:6%;
+    line-height: 200%;
 }
 .itm-wdthgt
 {
@@ -22,7 +23,6 @@
 {
     width: 20%;
     height: 100%;
-    line-height: 30px;
 }
 .itm-margin
 {
@@ -71,6 +71,5 @@
     {
         width:25%;
         text-align: center;
-        line-height: 30px;
     }
 }
