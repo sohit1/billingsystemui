@@ -56,21 +56,21 @@
 {
     color: black;
     position: relative;
-    top: 5px;
-    left: 11px;
+    top: 30%;
+    left: 25%;
     cursor:pointer;
 }
 @media (min-width:360px) and (max-width: 460px) 
 {
     .lbl-logout
     {
-        top: 12px;
-        left: 9px;
+        top: 27%;
+        left: 22%;
         
     }
     .common-header-right-component-right-right
     {
         margin-top:7%;
-        width:64%;
+        width:100%;
     }
 }

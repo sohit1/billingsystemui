@@ -4,8 +4,9 @@ import './Common.css';
 const MainHeader = (props) => {
     const logout = () =>
     {
-        localStorage.setItem('token-info'," ");
-        localStorage.setItem('login-time'," ");
+         localStorage.clear();
+        // localStorage.setItem('token-info'," ");
+        // localStorage.setItem('login-time'," ");
        // localStorage.clear();
         props.IsLogout("true")
     }

@@ -11,12 +11,12 @@ function App() {
   {
     const token = localStorage.getItem('token-info');
     var loggedin = false;
-    if(localStorage.getItem('login-time') !== " ")
+    if(localStorage.getItem('login-time') !== null)
     {
       loggedin = true;
       var currentmins = parseInt(new Date().getHours())*60 + parseInt(new Date().getMinutes())
       
-      if((currentmins - parseInt(localStorage.getItem('login-time')))*60 > 30)
+      if((currentmins - parseInt(localStorage.getItem('login-time'))) > 30)
       {
         loggedin = false;
       }    
