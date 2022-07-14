@@ -1,16 +1,11 @@
 import './invoice.css';
 import { useState } from 'react'
-import {useEffect} from 'react'
 import Item from './Item'
 import AddIcon from '../../../images/Add-button.png'
 import InvoiceHeader from './InvoiceHeader';
 import config from '../../../config.json';
 
-const mylists = [
-];
-const MenuItem =[
-
-];
+const mylists = [];
 const Invoice = () => {
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
@@ -25,12 +20,12 @@ const Invoice = () => {
                     'Content-Type' : "application/json"
                 }           
             }).then((response) => {
-                if (response.status != 200) {
+                if (response.status !== 200) {
                     alert("Something went wrong");
                     return;
                 }
                 response.json().then((data) => {
-                    if(data.responseStatus.errorNo != 0)
+                    if(data.responseStatus.errorNo !== 0)
                         {
                             alert(data.responseStatus.errorMessage);
                             return;
@@ -55,8 +50,8 @@ const Invoice = () => {
         const newData = mylist.map(data => {
 
             //add new row of item
-            if (data.id == p_id) { //should change only for the rows getting updated.
-                if(p_Flag == 'OnItemChange')
+            if (data.id === p_id) { //should change only for the rows getting updated.
+                if(p_Flag === 'OnItemChange')
             {
                 return {
                     ...data,totalItemAmount: parseInt(p_value),itemId:parseInt(p_itemId),pricePerUnit:parseInt(p_pricePerUnit),quantity: parseInt(p_Quantity)
@@ -85,6 +80,11 @@ const Invoice = () => {
         return false;
     }
     const saveItemsAndPrintInvoice = () => {
+        if(!mylist.length > 0)
+        {
+            alert("Click on + button to add items to the bill");
+            return;
+        }
         let breturned = false;
         mylist.forEach(element => {
             if(ValidateIsEmpty(element.quantity))
@@ -110,6 +110,7 @@ const Invoice = () => {
         });
         if(breturned)
         {
+
             return;
         }
         var data =
@@ -127,13 +128,13 @@ const Invoice = () => {
                 'Authorization': "Bearer "+localStorage.getItem('token-info')
             }           
         }).then((response) => {
-            if (response.status != 200) {
+            if (response.status !== 200) {
                 alert("Something went wrong");
                 return;
             }
             response.json().then((data) => {
                 setmylists([]);
-                alert("Generated Invoice: #"+data.invoiceNo)
+                alert(data.responseStatus.errorMessage+" : #"+data.invoiceNo)
             });
         });
     }
