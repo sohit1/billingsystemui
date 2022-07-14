@@ -37,7 +37,7 @@ const Item = (props) => {
     }
     const validateNumeric=(value)=>
     {
-        const re = /^[0-9\b]+$/;
+        const re = /^[0-9,.]+$/;
         if (re.test(value)) {
             return false;
          }
