@@ -60,7 +60,7 @@ const Invoice = () => {
             else
             {
                 return {
-                            ...data, totalItemAmount: parseInt(p_value),quantity: parseInt(p_Quantity)
+                            ...data, totalItemAmount: parseInt(p_value),quantity: parseFloat(p_Quantity)
                         };
             }
         }
