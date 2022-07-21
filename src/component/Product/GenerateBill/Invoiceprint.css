@@ -1,0 +1,106 @@
+.reacttoprint{
+    /* margin: 0%; */
+    height:10%;
+}
+.divMain
+{
+    height:100%;
+}
+.billContent
+{
+    height:93%;
+}
+body{
+    color:black
+}
+.itemHeader
+{
+    border-bottom: 1px solid black;
+    height: 5%;
+}
+.tblItemHeader
+{
+    width:100%;
+    height:100%;
+
+}
+.itemCashier
+{
+    
+    border-bottom: 1px solid black;
+    height:10%;
+}
+.tdItem
+{
+    width:50% !important;
+}
+
+.tblItem
+{
+    margin-top:1%;
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    vertical-align: middle;
+}
+td{
+    width:16.6%;
+    vertical-align: middle;
+}
+.divInvheader
+{
+    height:20%;
+}
+.trItemRow
+{
+    padding-bottom: 1%;
+}
+.btnPrint
+{
+    float:left;
+    height:50%;
+    width:9%;
+    background-color: chocolate;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.btnClose
+{
+    
+    float:right;
+    height:50%;
+    width:9%;
+    background-color: darkred;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.dvborder
+{
+    width:100%;
+    /* margin-top:1%; */
+    /* margin-bottom:1%; */
+    border-top: 1px solid black;
+}
+.tblSubPrice
+{
+    height:6%;
+    width:100%;
+    margin-top:1%;
+}
+@media (min-width:360px) and (max-width: 460px) 
+{
+    .btnPrint
+    {
+        width: 20%;
+       margin:0px 0px;
+    }
+    
+    .btnClose
+    {
+        width: 20%;
+    }
+}
