@@ -18,7 +18,8 @@ const Invoice = () => {
     const [MenuItem, getMenuItems] = useState([]);
     const [IsInvoice,setInvoice] = useState(true);
     const [invoiceinfo ,setInvoiceInfo] = useState(listinvoiceinfo);
-    const [invoiceNumberAndAmount ,setInvoiceNumberAndAmount] = useState("");
+    const [invoiceNumber ,setInvoiceNumber] = useState("");
+    const [invoiceAmount ,setInvoiceAmount] = useState("");
 
     useState(()=>
     {
@@ -212,7 +213,8 @@ const Invoice = () => {
                 setmylists([]);
                 alert(data.responseStatus.errorMessage+" : #"+data.invoiceNo);
                 setInvoiceInfo(data.invoiceDetails);
-                setInvoiceNumberAndAmount(data.invoiceNo +","+data.invoiceAmount);
+                setInvoiceNumber(data.invoiceNo);
+                setInvoiceAmount(data.invoiceAmount);
                 setInvoice(false);
             });
         });
@@ -224,10 +226,13 @@ const Invoice = () => {
                  IsInvoice &&
 
                 <div className="inv-content">
-                    <div className='inv-printbutton-test' onClick={saveItemsAndPrintInvoicetest}>
+                    <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white"}}onClick={saveItemsAndPrintInvoicetest}>
                         <label className='inv-label inv-label-button'>Print</label>
                     </div>
-                    <InvoiceHeader></InvoiceHeader>
+                    <div style={{paddingBottom:"2%"}}>
+                        <InvoiceHeader></InvoiceHeader>
+                    </div>
+                    {/* <InvoiceHeader></InvoiceHeader> */}
                     <div className='inv-margin'>
                         <div className='inv-width inv-float-left inv-textalign-left'>
                             <label className="inv-label">Item</label>
@@ -268,7 +273,7 @@ const Invoice = () => {
             {
                 (!IsInvoice) &&
                 <div className="inv-content">
-                    <Example OnClose = {OnPrintClose} InvoiceInfo ={invoiceinfo} InvoiceNumberAndAmount = {invoiceNumberAndAmount}></Example>
+                    <Example InvoiceNumber ={invoiceNumber} InvoiceAmount={invoiceAmount} OnClose = {OnPrintClose} InvoiceInfo ={invoiceinfo} ></Example>
                 </div>
             }
         </div>

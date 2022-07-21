@@ -6,20 +6,11 @@ import Invoice from "./Invoice";
 import InvoiceHeader from "./InvoiceHeader";
 import React, { useRef } from "react";
 
-// const ComponentToPrint=(props)=>
-// {
-//     return (
-//         <div className='print-source'>
-//           <InvoiceHeader/>
-//         </div>
-//       );
-// }
-
 class ComponentToPrint extends React.Component {
     render() {
       return (
           <React.Fragment>
-              <ItemsRowContainer InvoiceNumberAndAmount = {this.props.InvoiceNumberAndAmount} InvoiceInfo = {this.props.InvoiceInfo}/>
+              <ItemsRowContainer InvoiceNumber={this.props.InvoiceNumber} InvoiceAmount={this.props.InvoiceAmount} InvoiceInfo = {this.props.InvoiceInfo}/>
           </React.Fragment>
       );
     }
@@ -30,7 +21,43 @@ const ItemsRowContainer = (props) => {
         <React.Fragment>
             
             <div className="billContent">
-                <InvoiceHeader />
+                <div>
+                    <InvoiceHeader></InvoiceHeader>
+                </div>
+                <div className="itemCashier">
+                    <table style={{borderSpacing:"0 1em",borderCollapse:"separate"}} className="tblItemHeader">
+                        <tr>
+                            <td className="">
+                                <span>Date : {new Date().getDate()}-{new Date().getMonth()}-{new Date().getFullYear()}  {new Date().getTime()}</span>
+                            </td>
+                            <td>
+                                <span>Table No :#</span>
+                            </td>
+                            <td>
+                                <span></span>
+
+                            </td>
+                            <td>
+                                <span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="">
+                                <span>Cashier : Abc</span>
+                            </td>
+                            <td>
+                                <span>Bill No: #{props.InvoiceNumber}</span>
+                            </td>
+                            <td>
+                                <span></span>
+
+                            </td>
+                            <td>
+                                <span></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 <div className="itemHeader">
                     <table className="tblItemHeader">
                         <tr>
@@ -53,6 +80,60 @@ const ItemsRowContainer = (props) => {
                 <table className="tblItem">
                     {props.InvoiceInfo.map(items => <ItemsRow ItemDetails={items}></ItemsRow>)}
                 </table>
+                <div className="dvborder"></div>
+                <table className="tblSubPrice">
+                    <tr>
+                        <td className="tdItem">
+                            <span></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                        <td>
+                        <span>Sub Total :</span>
+                        </td>
+                        <td>
+                            <span>Rs {props.InvoiceAmount}</span>
+                        </td>
+                    </tr>
+                </table>
+                <div className="dvborder"></div>
+                <table className="tblSubPrice" style={{height: "10%"}}>
+                    <tr>
+                        <td className="tdItem">
+                            <span></span>
+                        </td>
+                        <td>
+                            <span>Others :</span>
+                        </td>
+                        <td>
+                        <span></span>
+                        </td>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                </table>
+                <div className="dvborder"></div>
+                <div className="dvborder"></div>
+                <table className="tblSubPrice" style={{height: "5%"}}>
+                    <tr>
+                        <td className="tdItem">
+                            <span></span>
+                        </td>
+                        <td>
+                            <span style={{fontWeight:"bold"}}>Grand Total   :</span>
+                        </td>
+                        <td>
+                        <span></span>
+                        </td>
+                        <td>
+                            <span style={{fontWeight:"bold"}}>Rs {props.InvoiceAmount}</span>
+                        </td>
+                    </tr>
+                </table>
+                <div className="dvborder"></div>
+                <div className="dvborder"></div>
             </div>
         </React.Fragment>
 
@@ -79,7 +160,7 @@ const ItemsRowContainer = (props) => {
       return (
           <div className ="divMain">
 
-              <ComponentToPrint InvoiceNumberAndAmount = {this.props.InvoiceNumberAndAmount}InvoiceInfo={this.props.InvoiceInfo} ref={el => (this.componentRef = el)} />
+              <ComponentToPrint InvoiceNumber = {this.props.InvoiceNumber} InvoiceAmount={this.props.InvoiceAmount} InvoiceInfo={this.props.InvoiceInfo} ref={el => (this.componentRef = el)} />
               <div className = "reacttoprint">
                   <ReactToPrint
                       trigger={() =>
