@@ -21,7 +21,7 @@ const ItemsRowContainer = (props) => {
         <React.Fragment>
             
             <div className="billContent">
-                <div>
+                <div className="dvInvoiceHeader" style={{ paddingBottom: "2%" }}>
                     <InvoiceHeader></InvoiceHeader>
                 </div>
                 <div className="itemCashier">

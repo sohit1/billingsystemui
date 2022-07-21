@@ -72,7 +72,7 @@
 }
 .inv-height-items
 {
-    height:55%;
+    height:66%;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -136,6 +136,11 @@
 .inv-margin-right
 {
     margin-right:2%;
+}
+.dvInvoiceHeader
+{
+    padding-bottom: 2%;
+    border-bottom: 1.5px solid black;
 }
 @media (min-width:360px) and (max-width: 460px) 
 {

@@ -12,7 +12,6 @@ import Example from './InvoicePrint';
 const mylists = [];
 const listinvoiceinfo = [];
 const Invoice = () => {
-    let componentRef = useRef();
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
     const [MenuItem, getMenuItems] = useState([]);
@@ -229,7 +228,7 @@ const Invoice = () => {
                     <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white"}}onClick={saveItemsAndPrintInvoicetest}>
                         <label className='inv-label inv-label-button'>Print</label>
                     </div>
-                    <div style={{paddingBottom:"2%"}}>
+                    <div className="dvInvoiceHeader" style={{paddingBottom:"2%"}}>
                         <InvoiceHeader></InvoiceHeader>
                     </div>
                     {/* <InvoiceHeader></InvoiceHeader> */}
