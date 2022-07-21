@@ -7,6 +7,12 @@
     box-shadow: 0 0 4px rgb(0 0 0 / 10%);
     margin: 2% 16%;
 }
+.inv-content-out
+{
+   
+    height: 100%;
+   
+}
 .inv-label
 {
     color: black;
@@ -100,6 +106,17 @@
     height:100%;
     width:15%;
     background-color: chocolate;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 3px;
+    
+}
+.inv-printbutton-test
+{
+    float:left;
+    width:15%;
+    background-color: blue;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
