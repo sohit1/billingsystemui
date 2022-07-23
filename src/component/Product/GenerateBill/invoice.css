@@ -23,6 +23,10 @@
     width: 100%;
     height:25%;
 } 
+.inv-labelcolor
+{
+    color: black;
+}
 
 /* div .inv-wdthgt::After {
     content: '';

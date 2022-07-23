@@ -9,5 +9,13 @@
         "STATE":"Uttar Pradesh",
         "PINCODE":"243002",
         "MOBILE":"000000000"
+    },
+    "RESOURCES":
+    {
+        "GENERATEINVOICE":"Generate Invoice",
+        "CHECKINVOICE":"Check Invoice",
+        "VIEWBILLS":"View Bills",
+        "FROMDATE":"From Date",
+        "TODATE":"To Date"
     }
 }

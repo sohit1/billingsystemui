@@ -47,8 +47,9 @@ function SignIn(props) {
                     'Content-Type' : "application/json"
                 }           
             }).then((response) => {
-                setLoading('False');
+                
                 if (response.status != 200) {
+                    setLoading('False');
                     alert("Something went wrong");
                     return;
                 }
@@ -58,14 +59,16 @@ function SignIn(props) {
                     {
                         if(data.responseStatus.errorNo != 0)
                         {
+                            setLoading('False');
                             alert(data.responseStatus.errorMessage);
                             return;
                         }
                         
                     }
-                    let loginminutes = parseInt(new Date().getHours())*60 + parseInt(new Date().getMinutes())
+                    var selectedDate = new Date();
+                    let loginDatetime = (selectedDate.getMonth()+1)+"/"+selectedDate.getDate()+"/"+selectedDate.getFullYear()+" "+selectedDate.getHours()+":"+selectedDate.getMinutes()+":"+selectedDate.getSeconds();
                     localStorage.setItem('token-info', data.token);
-                    localStorage.setItem('login-time', loginminutes);
+                    localStorage.setItem('login-Datetime', loginDatetime);
                     props.IsSignIn("MasterLanding");
                     
                     

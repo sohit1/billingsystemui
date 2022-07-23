@@ -11,15 +11,17 @@ function App() {
   {
     const token = localStorage.getItem('token-info');
     var loggedin = false;
-    if(localStorage.getItem('login-time') !== null)
+    var Datetime = new Date(localStorage.getItem('login-Datetime'));
+    var currDatetime = new Date();
+    Datetime.setHours(Datetime.getHours() + 8);
+    if(localStorage.getItem('login-Datetime') !== null)
     {
       loggedin = true;
-      var currentmins = parseInt(new Date().getHours())*60 + parseInt(new Date().getMinutes())
-      
-      if((currentmins - parseInt(localStorage.getItem('login-time'))) > 30)
+  
+      if(Datetime <  currDatetime)
       {
         loggedin = false;
-      }    
+      }     
     }
     
   
