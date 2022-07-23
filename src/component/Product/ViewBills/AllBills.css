@@ -1,0 +1,60 @@
+.abs-wdthgt
+{
+    width: 89%;
+    height:100%;
+    float:right;
+    padding-left: 1%;
+    padding-top: 1%;
+    background-color: white;
+
+}
+.abs-label
+{
+    color:black;
+}
+.abs-content-out
+{
+   
+    height: 100%;
+   
+}
+.abs-content
+{
+    background-color: white;
+    width: 45%;
+    height: 77%;
+    border: 1px solid #CACACA;
+    box-shadow: 0 0 4px rgb(0 0 0 / 10%);
+    margin: 2%;
+}
+.abs-dvborder
+{
+    width:100%;
+    /* margin-top:1%; */
+    /* margin-bottom:1%; */
+    border-top: 1px solid black;
+}
+.tblItem
+{
+    margin-top:1%;
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    vertical-align: middle;
+}
+.abs-tdItem
+{
+    width:50% !important;
+}
+.abs-tdwidth20
+{
+   width:30%;
+}
+.abs-tdwidth10
+{
+   width:10%;
+}
+.abs-tdwidth15
+{
+   width:15%;
+}

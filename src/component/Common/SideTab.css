@@ -4,3 +4,22 @@
     background-color: #006666;
     float:left;
 }
+.sidetab-label
+{
+    color:white !important;
+    cursor: pointer ;
+}
+.sidetab-table
+{
+    margin-top: 10%;
+    margin-left: 2%;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+@media (min-width:360px) and (max-width: 460px) 
+{
+    .desktop-view
+    {
+        display: none;
+    }
+}

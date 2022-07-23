@@ -21,24 +21,17 @@ const ItemsRowContainer = (props) => {
         <React.Fragment>
             
             <div className="billContent">
-                <div>
+                <div className="dvInvoiceHeader" style={{ paddingBottom: "2%" }}>
                     <InvoiceHeader></InvoiceHeader>
                 </div>
                 <div className="itemCashier">
                     <table style={{borderSpacing:"0 1em",borderCollapse:"separate"}} className="tblItemHeader">
                         <tr>
                             <td className="">
-                                <span>Date : {new Date().getDate()}-{new Date().getMonth()}-{new Date().getFullYear()}  {new Date().getTime()}</span>
+                                <span>Date : {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}  {new Date().getHours()}:{new Date().getMinutes()}</span>
                             </td>
                             <td>
                                 <span>Table No :#</span>
-                            </td>
-                            <td>
-                                <span></span>
-
-                            </td>
-                            <td>
-                                <span></span>
                             </td>
                         </tr>
                         <tr>
@@ -47,13 +40,6 @@ const ItemsRowContainer = (props) => {
                             </td>
                             <td>
                                 <span>Bill No: #{props.InvoiceNumber}</span>
-                            </td>
-                            <td>
-                                <span></span>
-
-                            </td>
-                            <td>
-                                <span></span>
                             </td>
                         </tr>
                     </table>
@@ -170,6 +156,8 @@ const ItemsRowContainer = (props) => {
                               </div>
                     }
                       content={() => this.componentRef}
+                      //pageStyle="print"
+                       pageStyle="@page {size: 3in 6in}"
                   />
                   <div className="btnClose" onClick={onPrintClose} >
                       <label className=''><span>Close</span></label>
