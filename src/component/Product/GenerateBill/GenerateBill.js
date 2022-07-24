@@ -1,12 +1,20 @@
 import './GenerateBill.css'
 import Invoice from './Invoice'
+import Title from "../../Common/Title";
+import config from '../../../config.json';
 
-const GenerateBill = () =>
+const GenerateBill = (props) =>
 {
+    function onBackButtonClickHandler()
+    {
+        props.BackButtonClick();
+    }
+
     return(
         <div className="gnb-wdthgt">
-            <div>
-                <span><label className='gnb-label'>Billing</label></span>
+            <div className="mb-gnb-title">
+                <Title Title={config.RESOURCES.GENERATEINVOICE} BackButtonClick={onBackButtonClickHandler}/>
+                <span className="mbdisplaynone"><label className='gnb-label'>Genrate Invoice</label></span>
             </div>
             <Invoice />
         </div>

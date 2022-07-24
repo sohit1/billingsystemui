@@ -2,6 +2,7 @@ import config from '../../../config.json'
 import AllBills from './AllBill'
 import ViewBillDetails from './ViewBillDetails'
 import { useState } from 'react'
+import Title from "../../Common/Title";
 
 const BillInfo = (props) => {
     const[isViewBillDetails, setViewBillDetails] = useState(false);
@@ -13,6 +14,11 @@ const BillInfo = (props) => {
     function viewBillDetailsHandler(pInvoiceNo)
     {
         getBillDetailsUsingInvoiceNumber(pInvoiceNo);
+    }
+
+    function onBackButtonClickHandler()
+    {
+        props.BackButtonClick();
     }
 
     function getBillDetailsUsingInvoiceNumber(pInvoiceNo)
@@ -45,7 +51,8 @@ const BillInfo = (props) => {
     return (
         <div className="abs-wdthgt">
             <div>
-                <span><label className='abs-label'>{config.RESOURCES.VIEWBILLS}</label></span>
+                <Title Title={config.RESOURCES.CHECKINVOICE} BackButtonClick={onBackButtonClickHandler}/>
+                <span className="mbdisplaynone"><label className='abs-label'>{config.RESOURCES.VIEWBILLS}</label></span>
             </div>
             <div className='abs-content-out'>
                 <div className='abs-content' style={{float:"left"}}>

@@ -60,6 +60,22 @@
     left: 25%;
     cursor:pointer;
 }
+.mbdisplay
+    {
+        display: none;
+    }
+    .white-label
+    {
+        color:white;
+    }
+    .black-label
+    {
+        color:black;
+    }
+    .white-background
+    {
+        background-color:white;
+    }
 @media (min-width:360px) and (max-width: 460px) 
 {
     .lbl-logout
@@ -74,3 +90,14 @@
         width:100%;
     }
 }
+@media (min-width:360px) and (max-width: 460px)
+{
+    .mbdisplay
+    {
+        display: block;
+    }
+    .mbdisplaynone
+    {
+        display: none;
+    }
+}       

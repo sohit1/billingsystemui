@@ -13,7 +13,16 @@
     color:black;
 }
 
-/* label 
-{
-    color: black !important;
-} */
+@media (min-width:360px) and (max-width: 460px) {
+    .gnb-wdthgt {
+        width: 100%;
+
+
+    }
+        .mb-gnb-title {
+            margin-bottom: 5%;
+            margin-top: 2%;
+            font-weight: bold;
+            height:2%;
+        }
+        }

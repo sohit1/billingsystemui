@@ -48,13 +48,23 @@
 }
 .abs-tdwidth20
 {
-   width:30%;
+   width:40%;
 }
 .abs-tdwidth10
 {
-   width:10%;
+   width:15%;
 }
 .abs-tdwidth15
 {
    width:15%;
+}
+@media (min-width:360px) and (max-width: 460px) {
+    .abs-wdthgt {
+        width: 100%;
+
+    }
+
+    .abs-content {
+        width: 100%;
+    }
 }
