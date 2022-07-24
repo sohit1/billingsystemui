@@ -224,14 +224,13 @@ const Invoice = () => {
              {
                  IsInvoice &&
 
-                <div className="inv-content">
-                    <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white"}}onClick={saveItemsAndPrintInvoicetest}>
+                <div className="inv-content" style={{position:"relative"}}>
+                    <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white",display:"none"}}onClick={saveItemsAndPrintInvoicetest}>
                         <label className='inv-label inv-label-button'>Print</label>
                     </div>
                     <div className="dvInvoiceHeader" style={{paddingBottom:"2%"}}>
                         <InvoiceHeader></InvoiceHeader>
                     </div>
-                    {/* <InvoiceHeader></InvoiceHeader> */}
                     <div className='inv-margin'>
                         <div className='inv-width inv-float-left inv-textalign-left'>
                             <label className="inv-label">Item</label>
@@ -252,9 +251,7 @@ const Invoice = () => {
                     <div className='inv-height-items'>
                         {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} MenuData={MenuItem} />)}
                     </div>
-                    <div className='inv-height-total'>
-
-
+                    <div className='inv-height-total' style={{position:"absolute",width:"100%",bottom:"0"}}>
                         <div className='inv-printbutton' onClick={saveItemsAndPrintInvoice}>
                             <label className='inv-label inv-label-button'>Print</label>
                         </div>
@@ -263,8 +260,6 @@ const Invoice = () => {
                             <label className="inv-float-right inv-labelcolor">Rs</label>
                             <label className='inv-float-right inv-margin-right inv-labelcolor' >Total:</label>
                         </div>
-
-
                     </div>
                 </div>
 

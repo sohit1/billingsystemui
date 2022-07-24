@@ -1,5 +1,26 @@
 {
     "WEBAPI_URL": "https://billingwebapi.herokuapp.com/",
+    "MOBILE": {
+        "BUSINESS_TITLE": {
+            "NAME": "Jai Bajrang Dhawa",
+            "AREA": "Attamanda",
+            "DISTRICT": "Bareilly",
+            "CITY": "Bareilly",
+            "STATE": "Uttar Pradesh",
+            "PINCODE": "243002",
+            "MOBILE": "000000000"
+        },
+        "RESOURCES": {
+            "CHECKINVOICE": "Check Invoice",
+            "VIEWBILLS": "View Bills",
+            "FROMDATE": "From Date",
+            "TODATE": "To Date",
+            "BILLNO": "#InvNo",
+            "BILLAMOUNT": "Amt",
+            "CREATEDDATE":"Date",
+            "USERID":"#Uid"
+        }
+    },
     "BUSINESS_TITLE":
     {
         "NAME":"New Jai Bajrang Tourist And Family Dhawa",
@@ -16,6 +37,10 @@
         "CHECKINVOICE":"Check Invoice",
         "VIEWBILLS":"View Bills",
         "FROMDATE":"From Date",
-        "TODATE":"To Date"
+        "TODATE":"To Date",
+        "BILLNO": "#BillNo",
+        "BILLAMOUNT": "Bill Amount",
+        "CREATEDDATE":"Created Date",
+        "USERID":"#UserId"
     }
 }

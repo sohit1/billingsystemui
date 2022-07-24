@@ -5,9 +5,10 @@ import GenerateBill from "../Product/GenerateBill/GenerateBill.js"
 import BillInfo from "../Product/ViewBills/BillInfo"
 import config from '../../config.json'
 import { useState } from 'react'
+import MobileMenuItems from "./MobileMenuItems";
 
 const MasterLanding = (props) => {
-    const [sideTabMenuItem, setSideTabMenuItem] = useState(config.RESOURCES.GENERATEINVOICE);
+    const [sideTabMenuItem, setSideTabMenuItem] = useState("");
     function mainHeaderEventHandler(param)
     {
         if(param == "true")
@@ -15,6 +16,10 @@ const MasterLanding = (props) => {
             props.IsMasterPage("LandingPage")
         }
 
+    }
+    function onBackButtonClickHandler()
+    {
+        setSideTabMenuItem("");
     }
 
     const sideTabClickHandler=(param) =>{
@@ -35,18 +40,16 @@ const MasterLanding = (props) => {
                 <SideTab sideTabClickHandler ={sideTabClickHandler}/>
                 {
                     sideTabMenuItem === config.RESOURCES.GENERATEINVOICE &&
-                    <GenerateBill></GenerateBill>
+                    <GenerateBill BackButtonClick ={onBackButtonClickHandler}></GenerateBill>
                 }
                 {
                     sideTabMenuItem === config.RESOURCES.CHECKINVOICE &&
-                    <BillInfo/>
+                    <BillInfo BackButtonClick ={onBackButtonClickHandler}/>
                 }
-                {/* {
-                    sideTabMenuItem ==="" &&
-                    <div style={{ textAlign: "center", marginTop: "7%" }}>
-                        <label>WELCOME SOHIT SINGH</label>
-                    </div>
-                } */}
+                {
+                    sideTabMenuItem === "" &&
+                    <MobileMenuItems sideTabClickHandler ={sideTabClickHandler}/>
+                }
                 
 
             </div>

@@ -12,7 +12,7 @@ const SideTab = (props) =>
         props.sideTabClickHandler(config.RESOURCES.CHECKINVOICE);
     }
     return (
-        <div className="divheight sidetab-divwidth sidetab-content">
+        <div className="divheight sidetab-divwidth sidetab-content mbdisplaynone">
             <table className='sidetab-table desktop-view'>
                 <tr>
                     <td>

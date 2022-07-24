@@ -22,7 +22,6 @@ const MainHeader = (props) => {
                     <div className="common-header-right-component-right-right">
                         <div className='common-divheight'>
                             <label className="lbl-logout" onClick={logout}>Log out</label>
-                            {/* <img className='common-image-height common-float-right' src ={profilepic}/> */}
                         </div>
                     </div>
                 </div>
