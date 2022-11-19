@@ -19,6 +19,7 @@ const Invoice = () => {
     const [invoiceinfo ,setInvoiceInfo] = useState(listinvoiceinfo);
     const [invoiceNumber ,setInvoiceNumber] = useState("");
     const [invoiceAmount ,setInvoiceAmount] = useState("");
+    const [DisablePrint ,setDisablePrint] = useState(false);
 
     useState(()=>
     {
@@ -92,12 +93,13 @@ const Invoice = () => {
 
         return false;
     }
-    const saveItemsAndPrintInvoice = () => {
+   async function saveItemsAndPrintInvoice() {
         if(!mylist.length > 0)
         {
             alert("Click on + button to add items to the bill");
             return;
         }
+        setDisablePrint(true);
         let breturned = false;
         mylist.forEach(element => {
             if(ValidateIsEmpty(element.quantity))
@@ -123,7 +125,8 @@ const Invoice = () => {
         });
         if(breturned)
         {
-
+            alert("breturned");
+            setDisablePrint(false);
             return;
         }
         var data =
@@ -132,7 +135,7 @@ const Invoice = () => {
             "invoiceDetails":mylist
         }
 
-        fetch(config.WEBAPI_URL+"invoice/generateinvoice",
+       await fetch(config.WEBAPI_URL+"invoice/generateinvoice",
         {
             method: 'POST',
             body: JSON.stringify(data),
@@ -148,14 +151,13 @@ const Invoice = () => {
             response.json().then((data) => {
                 setmylists([]);
                 alert(data.responseStatus.errorMessage+" : #"+data.invoiceNo);
-                // setInvoiceInfo(data.invoiceDetails);
-                // setInvoiceNumberAndAmount(data.invoiceNo +","+data.invoiceAmount);
-                // setInvoice(false);
             });
         });
+        setDisablePrint(false);
     }
     //TestFunction
-    const saveItemsAndPrintInvoicetest = () => {
+     async function saveItemsAndPrintInvoicetest () {
+       
         if(!mylist.length > 0)
         {
             alert("Click on + button to add items to the bill");
@@ -194,8 +196,7 @@ const Invoice = () => {
             "invoiceNo":0,
             "invoiceDetails":mylist
         }
-
-        fetch(config.WEBAPI_URL+"invoice/generateinvoice",
+        await fetch(config.WEBAPI_URL+"invoice/generateinvoice",
         {
             method: 'POST',
             body: JSON.stringify(data),
@@ -216,7 +217,9 @@ const Invoice = () => {
                 setInvoiceAmount(data.invoiceAmount);
                 setInvoice(false);
             });
+            
         });
+        
     }
     //End TestFunction
     return (
@@ -252,7 +255,7 @@ const Invoice = () => {
                         {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} MenuData={MenuItem} />)}
                     </div>
                     <div className='inv-height-total' style={{position:"absolute",width:"100%",bottom:"0"}}>
-                        <div className='inv-printbutton' onClick={saveItemsAndPrintInvoice}>
+                        <div className= {DisablePrint ? 'inv-pointerevent inv-printbutton ' : 'inv-printbutton'} onClick={saveItemsAndPrintInvoice}>
                             <label className='inv-label inv-label-button'>Print</label>
                         </div>
                         <div className='inv-float-right inv-footer-right'>

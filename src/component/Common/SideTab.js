@@ -11,9 +11,14 @@ const SideTab = (props) =>
     {
         props.sideTabClickHandler(config.RESOURCES.CHECKINVOICE);
     }
+    function EmployeeHandler()
+    {
+        props.sideTabClickHandler(config.RESOURCES.EMPLOYEE);
+    }
     return (
         <div className="divheight sidetab-divwidth sidetab-content mbdisplaynone">
             <table className='sidetab-table desktop-view'>
+                <tbody>
                 <tr>
                     <td>
                         <div>
@@ -28,6 +33,14 @@ const SideTab = (props) =>
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <span><label onClick={EmployeeHandler} className='sidetab-label'>{config.RESOURCES.EMPLOYEE}</label></span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
             </table>
         </div>
     );

@@ -114,7 +114,13 @@
     line-height: 30px;
     cursor: pointer;
     border-radius: 3px;
+    pointer-events: all;
     
+}
+.inv-pointerevent
+{
+    pointer-events: none;
+    background-color: grey;
 }
 .inv-printbutton-test
 {

@@ -19,20 +19,24 @@ const MobileMenuItems = (props) =>
             <div style={{height:"70%",margin:"10%",paddingTop:"5%",backgroundColor:"#006666",borderRadius:"10px"}}>
                 <div className='white-background mmi-buttons' style={{}} >
                     <table style={{ height: "100%" }}>
+                        <tbody>
                         <tr>
                             <td>
                                 <span><label onClick={GenerateInvoice} className='black-label'>{config.RESOURCES.GENERATEINVOICE}</label></span>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className='white-background mmi-buttons'>
                     <table style={{ height: "100%" }}>
+                        <tbody>
                         <tr>
                             <td>
                                 <span><label onClick={CheckInvoice} className='black-label'>{config.RESOURCES.CHECKINVOICE}</label></span>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
 
                 </div>

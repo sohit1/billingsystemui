@@ -6,6 +6,8 @@ import BillInfo from "../Product/ViewBills/BillInfo"
 import config from '../../config.json'
 import { useState } from 'react'
 import MobileMenuItems from "./MobileMenuItems";
+import Attendance from "../Employee/Attendance";
+import ManageEmployee from "../Employee/ManageEmployee";
 
 const MasterLanding = (props) => {
     const [sideTabMenuItem, setSideTabMenuItem] = useState("");
@@ -31,6 +33,10 @@ const MasterLanding = (props) => {
         {
             setSideTabMenuItem(config.RESOURCES.CHECKINVOICE);
         }
+        else if(param === config.RESOURCES.EMPLOYEE)
+        {
+            setSideTabMenuItem(config.RESOURCES.EMPLOYEE);
+        }
     }
 
     return (
@@ -49,6 +55,10 @@ const MasterLanding = (props) => {
                 {
                     sideTabMenuItem === "" &&
                     <MobileMenuItems sideTabClickHandler ={sideTabClickHandler}/>
+                }
+                {
+                    sideTabMenuItem === config.RESOURCES.EMPLOYEE &&
+                    <ManageEmployee BackButtonClick ={onBackButtonClickHandler}/>
                 }
                 
 

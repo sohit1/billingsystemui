@@ -1,5 +1,4 @@
 import './Common.css';
-//import profilepic from "D:/Practice/ReactJS/authenticationsystem/src/images/profile-icon.png";
 
 const MainHeader = (props) => {
     const logout = () =>
@@ -15,6 +14,7 @@ const MainHeader = (props) => {
             <div className="common-header-left-component">
                 <div className="divlogo">
                     <span>JB</span>
+                    {/* <img src={companyogo}></img> */}
                 </div>
             </div>
             <div className= "common-header-right-component">

@@ -5,7 +5,7 @@ import React, { useState,useEffect } from 'react';
 import DateTimePicker from 'react-datetime-picker';
 
 const AllBills = (props) => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState(changeTimezone);
     const [fromselectedDate, setFromSelectedDate] = useState(new Date());
     const [lstBills, setLstBills] = useState([]);
     const [TotalBillAmount, setTotalBillAmount] = useState(0);
@@ -17,8 +17,18 @@ const AllBills = (props) => {
             setMobileScreen(true);
             getAllBills();
         }
-
+        changeTimezone();
     }, []);
+
+    function changeTimezone()
+    {
+        var date = new Date();
+        var frmDate = date.getMonth() +"/" + date.getDate() + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        return new Date(frmDate);
+    //   return new Date(
+    //     new Date().toLocaleString('en-US', { timeZone: 'IST' })
+    //   );
+    }
 
     function getTotalBillAmount(lstBill) {
         var sum = 0;
