@@ -1,0 +1,8 @@
+.firsttd{
+    width:8%;
+}
+/* .atddiv > tr:hover {background-color: hsla(0, 100%, 90%, 0.3);} */
+
+tr.atddiv:hover {
+    background: gray !important;
+  }

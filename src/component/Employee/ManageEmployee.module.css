@@ -1,0 +1,19 @@
+.content
+{
+    position: relative;
+    box-shadow: rgb(0 0 50 / 15%) 20px 20px 20px;
+    border-radius: 2%;
+    position: "relative";
+}
+.firsttd{
+    width:8%;
+}
+.sideMenu{
+    width: 20%;
+    height: 93%;
+    float: left;
+    margin: 2%;
+    border-radius: 20px;
+    border: 2px solid grey;
+
+}

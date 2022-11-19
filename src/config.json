@@ -1,5 +1,6 @@
 {
     "WEBAPI_URL": "https://billingwebapi.herokuapp.com/",
+    "WEBAPI_URLLOCAL": "https://localhost:44330/",
     "MOBILE": {
         "BUSINESS_TITLE": {
             "NAME": "Jai Bajrang Dhawa",
@@ -18,7 +19,8 @@
             "BILLNO": "#InvNo",
             "BILLAMOUNT": "Amt",
             "CREATEDDATE":"Date",
-            "USERID":"#Uid"
+            "USERID":"#Uid",
+            "EMPLOYEE":"Manage Employee"
         }
     },
     "BUSINESS_TITLE":
@@ -41,6 +43,8 @@
         "BILLNO": "#BillNo",
         "BILLAMOUNT": "Bill Amount",
         "CREATEDDATE":"Created Date",
-        "USERID":"#UserId"
+        "USERID":"#UserId",
+        "EMPLOYEE":"Manage Employee",
+        "ATTENDANCE":"Attendance"
     }
 }
