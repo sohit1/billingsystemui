@@ -9,6 +9,7 @@ import ReactToPrint from "react-to-print";
 import React, { useRef } from "react";
 import Example from './InvoicePrint';
 
+let nNumberOfItem = 0;
 const mylists = [];
 const listinvoiceinfo = [];
 const Invoice = () => {
@@ -165,6 +166,7 @@ const Invoice = () => {
         }
         let breturned = false;
         mylist.forEach(element => {
+            nNumberOfItem = nNumberOfItem+1;
             if(ValidateIsEmpty(element.quantity))
             {
                 alert("quantity can not be empty.");
@@ -228,7 +230,7 @@ const Invoice = () => {
                  IsInvoice &&
 
                 <div className="inv-content" style={{position:"relative"}}>
-                    <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white",display:"none"}}onClick={saveItemsAndPrintInvoicetest}>
+                    <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white",display:""}}onClick={saveItemsAndPrintInvoicetest}>
                         <label className='inv-label inv-label-button'>Print</label>
                     </div>
                     <div className="dvInvoiceHeader" style={{paddingBottom:"2%"}}>
@@ -270,7 +272,7 @@ const Invoice = () => {
             {
                 (!IsInvoice) &&
                 <div className="inv-content">
-                    <Example InvoiceNumber ={invoiceNumber} InvoiceAmount={invoiceAmount} OnClose = {OnPrintClose} InvoiceInfo ={invoiceinfo} ></Example>
+                    <Example InvoiceNumber ={invoiceNumber} InvoiceAmount={invoiceAmount} OnClose = {OnPrintClose} InvoiceInfo ={invoiceinfo} NumberOfItems = {nNumberOfItem}></Example>
                 </div>
             }
         </div>
