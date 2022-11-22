@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/newbillingsystemui/static/css/main.c66e4852.css",
-    "main.js": "/newbillingsystemui/static/js/main.31485c55.js",
+    "main.css": "/newbillingsystemui/static/css/main.023c08b0.css",
+    "main.js": "/newbillingsystemui/static/js/main.ca168149.js",
+    "static/media/Organisation.jpg": "/newbillingsystemui/static/media/Organisation.608c22be0996832d213f.jpg",
     "static/media/GenerateBill.png": "/newbillingsystemui/static/media/GenerateBill.bd95ed5d4a92f75aa193.png",
     "static/media/Add-button.png": "/newbillingsystemui/static/media/Add-button.98945888d29c615ecb21.png",
+    "static/media/attendance.png": "/newbillingsystemui/static/media/attendance.bc6198f467adffa1fe7d.png",
     "index.html": "/newbillingsystemui/index.html",
-    "main.c66e4852.css.map": "/newbillingsystemui/static/css/main.c66e4852.css.map",
-    "main.31485c55.js.map": "/newbillingsystemui/static/js/main.31485c55.js.map"
+    "main.023c08b0.css.map": "/newbillingsystemui/static/css/main.023c08b0.css.map",
+    "main.ca168149.js.map": "/newbillingsystemui/static/js/main.ca168149.js.map"
   },
   "entrypoints": [
-    "static/css/main.c66e4852.css",
-    "static/js/main.31485c55.js"
+    "static/css/main.023c08b0.css",
+    "static/js/main.ca168149.js"
   ]
 }
