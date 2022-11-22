@@ -156,8 +156,9 @@ const ItemsRowContainer = (props) => {
                               </div>
                     }
                       content={() => this.componentRef}
-                      //pageStyle="print"
-                       pageStyle="@page {size: 3in 6in}"
+                    //   pageStyle="print"
+                    // pageStyle={`@page {size: 6in ${this.props.NumberOfItems*2}in}`}
+                    pageStyle="@page {size: 6in 14in}"
                   />
                   <div className="btnClose" onClick={onPrintClose} >
                       <label className=''><span>Close</span></label>
