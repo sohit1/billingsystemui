@@ -1,4 +1,4 @@
-@import url("https://cdn.syncfusion.com/ej2/material.css");
+/* @import url("https://cdn.syncfusion.com/ej2/material.css"); */
 tr.abc:hover{
     background-color: hsla(0, 100%, 90%, 0.3);
 }

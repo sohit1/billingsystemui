@@ -1,0 +1,63 @@
+.justify_content_center
+{
+    justify-content: center !important;
+}
+
+.content_box_color
+{
+    background-color: #006666;
+}
+
+.container
+{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    }
+
+    .wrap {
+        width: 100%;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+        -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+        box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24); 
+    }
+
+@media (min-width: 1200px)
+{
+    .container {
+        max-width: 1140px;
+    }
+}
+
+.login-wrap
+{
+    position: relative;
+}
+
+.login-wrap h3
+{
+    font-weight: 300;
+}
+.signin_form_label
+{
+    color:gray !important;
+}
+
+.wrap_img {
+    height: 200px;
+}

@@ -1,6 +1,9 @@
 import "./Registeration.css";
-import { useState } from "react";
 import GoogleImg from "../../images/login-with-google.png";
+import React from "react";
+import styles from "./SignIn.module.css";
+import { useEffect , useState } from 'react';
+import coverImg from '../../images/bg-1.jpg';
 import config from "../../config.json";
 
 function SignIn(props) {
@@ -18,11 +21,26 @@ function SignIn(props) {
 
   const ValidateIsEmpty = (value) => {
     if (value == undefined || value == "") return true;
-
     return false;
   };
 
+  function handleClick(event) {
+    event.preventDefault();
+    const el = document.getElementById('password-field');
+    if (el.type === 'password') {
+      el.type = 'text';
+      event.currentTarget.classList.remove('fa-eye');
+      event.currentTarget.classList.add('fa-eye-slash');
+    }
+    else {
+      el.type = 'password';
+      event.currentTarget.classList.add('fa-eye');
+      event.currentTarget.classList.remove('fa-eye-slash');
+    }
+
+  };
   const submitHandler = (event) => {
+    event.preventDefault();
     fetch("http://localhost:3000/", {
       method: "GET",
       headers: {
@@ -30,7 +48,6 @@ function SignIn(props) {
       },
     }).then(function (response) {
       if (response.ok) {
-        alert(response.json());
       } else {
         throw new Error("Could not reach the API: " + response.statusText);
       }
@@ -92,67 +109,61 @@ function SignIn(props) {
     });
   };
   return (
-    <form className="form">
-      <div className="container mbcontainer">
-        <ul className="formsection">
-          <li>
-            <div className="divflex">
-              <span>
-                <h1>Login</h1>
-              </span>
-            </div>
-          </li>
-          <li>
-            <div className="lidiv">
-              <input
-                type="text"
-                onChange={captureEmailHandler}
-                placeholder="Enter Email or Mobile no"
-                name="email"
-                id="email"
-                required
-              ></input>
-            </div>
-          </li>
-          <li>
-            <div className="lidiv">
-              <input
-                type="password"
-                onChange={capturePassHandler}
-                placeholder="Enter Password"
-                name="psw"
-                id="psw"
-                required
-              ></input>
-            </div>
-          </li>
-          <li>
-            <div className="divflex divmargin">
-              <input
-                type="button"
-                onClick={submitHandler}
-                value="Login"
-              ></input>
-            </div>
-          </li>
-          <li>
-            <div className="divlabel">
-              <label className="labelcolor1">or</label>
-            </div>
-          </li>
-          <li>
-            <div className="divimg1">
-              <img src={GoogleImg} alt="billingimage"></img>
-            </div>
-            {showLoading && (
-              <div className="loading">
-                <h1>Please wait, loading . . .</h1>
+    <React.Fragment>
+      <div className={`${styles.container}`}>
+        <div className={`${styles.justify_content_center} ${styles.row}`}>
+          <div className="col-lg-1 col-posd-1">
+            <div className={styles.wrap}>
+              <div className={`${styles.wrap_img}`} style={{ backgroundImage: `url(${coverImg})` }}>
+                {/* <img src={coverImg} alt="Google" /> */}
               </div>
-            )}
-          </li>
-        </ul>
+              <div className="login-wrap p-md-5 p-4">
+                <div class="d-flex">
+                  <div class="w-100">
+                    <h3 class="mb-4">Sign In</h3>
+                  </div>
+                  {/* <div class="w-100">
+                    <p class="social-media d-flex justify-content-end">
+                      <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+                    </p>
+                  </div> */}
+                </div>
+                <form class="signin-form">
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" placeholder="Mobile" onChange={captureEmailHandler} required="" />
+                    {/* <label class= {`${styles.signin_form_label} ${"form-control-placeholder "}`} for="username">Username</label> */}
+                  </div>
+                  <div class="form-group">
+                    <input id="password-field" type="password" placeholder="password" class="form-control" onChange={capturePassHandler} required="" />
+                    {/* <label class="form-control-placeholder" for="password">Password</label> */}
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" onClick={handleClick}></span>
+                  </div>
+                  <div class="form-group">
+                    <button class="form-control btn btn-primary rounded submit px-3" onClick={submitHandler}>Sign In</button>
+                  </div>
+                  <div class="form-group d-md-flex">
+                    <div class="w-50 text-left">
+                      <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div class="w-50 text-md-right">
+                      <a href="#">Forgot Password</a>
+                    </div>
+                  </div>
+                </form>
+                <p class="text-center">Not a member?
+                  <a data-toggle="tab" href="#signup">Sign Up
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </form>
+
+    </React.Fragment>
   );
 }
 export default SignIn;
