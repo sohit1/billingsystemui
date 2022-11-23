@@ -4,7 +4,7 @@ import { Checkbox } from '@material-ui/core';
 import './Attendance.css';
 import config from '../../config.json';
 import CustomButton from '../Common/CustomButton';
-import {DatePickerComponent} from '@syncfusion/ej2-react-calendars';
+// import {DatePickerComponent} from '@syncfusion/ej2-react-calendars';
 
 
 const Attendance = (props) => {
@@ -85,9 +85,9 @@ const Attendance = (props) => {
         <React.Fragment>
             <div className ="xyz" style={{width:"88%", height:"100%"}}>
             <div style={{}}>
-                <div style={{float:"right",marginBottom:"2%",width:"17%",backgroundColor:"chocolate",borderRadius:"15px"}}>
+                {/* <div style={{float:"right",marginBottom:"2%",width:"17%",backgroundColor:"chocolate",borderRadius:"15px"}}>
                     <DatePickerComponent format={"dd/MM/yyyy"} value={fromSelectedValue} change={date => setFromSelectedValue(date.value)}></DatePickerComponent>
-                </div>
+                </div> */}
             </div>
             <div className="atddiv" style={{width: "100%",height:"88%" }}>
                 <table style={{ width: "100%", marginLeft: "2%", marginTop: "2%", borderCollapse: "collapse" }}>

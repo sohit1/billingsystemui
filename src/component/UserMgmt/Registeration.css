@@ -14,7 +14,7 @@
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] {
   width: 97%;
   padding: 10px;
   border: none;
@@ -36,7 +36,7 @@ input[type=button]
     outline:none;
     cursor:pointer;
     background-color: chocolate;
-}
+} */
 /* Overwrite default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
