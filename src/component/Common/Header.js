@@ -10,7 +10,7 @@ const MainHeader = (props) => {
         props.IsLogout("true")
     }
     return (
-        <div className="common-header">
+        <div className="w-100 h-7 bg-col-green">
             <div className="common-header-left-component">
                 <div className="divlogo">
                     <span>JB</span>

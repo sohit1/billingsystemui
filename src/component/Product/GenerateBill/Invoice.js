@@ -8,6 +8,7 @@ import config from '../../../config.json';
 import ReactToPrint from "react-to-print";
 import React, { useRef } from "react";
 import Example from './InvoicePrint';
+import CustomButton from '../../Common/CustomButton';
 
 let nNumberOfItem = 0;
 const mylists = [];
@@ -225,38 +226,48 @@ const Invoice = () => {
     }
     //End TestFunction
     return (
-        <div className='inv-content-out'>
-             {
-                 IsInvoice &&
+        <React.Fragment>
+            <div className='h-100'>
+                {
+                    IsInvoice &&
 
-                <div className="inv-content" style={{position:"relative"}}>
-                    <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white",display:""}}onClick={saveItemsAndPrintInvoicetest}>
+                    <div className="h-100 br-shadow bg-col-white d-flex f-direction-column ">
+                        {/* <div className='inv-printbutton-test' style={{width:"100%",textAlign:"left",backgroundColor:"white",display:""}}onClick={saveItemsAndPrintInvoicetest}>
                         <label className='inv-label inv-label-button'>Print</label>
-                    </div>
-                    <div className="dvInvoiceHeader" style={{paddingBottom:"2%"}}>
-                        <InvoiceHeader></InvoiceHeader>
-                    </div>
-                    <div className='inv-margin'>
-                        <div className='inv-width inv-float-left inv-textalign-left'>
-                            <label className="inv-label">Item</label>
+                    </div> */}
+                        <div className="dvInvoiceHeader">
+                            <InvoiceHeader></InvoiceHeader>
                         </div>
-                        <div className='inv-width inv-float-left inv-textalign-left'>
-                            <label className="inv-label">Quantity</label>
+                        <div className='m-l-1 h-6 d-flex invoice-header'>
+                            <div className='w-20'>
+                                <label className="">Item</label>
+                            </div>
+                            <div className='w-20 m-l-6px'>
+                                <label className="">Quantity</label>
+                            </div>
+                            <div className='w-20 mbdisplaynone'>
+                                <label className="">PricePerUnit</label>
+                            </div>
+                            <div className='w-20'>
+                                <label className="">Amount</label>
+                            </div>
+                            <div className='w-20'>
+                                <label className="h-100"><img alt="addimage" onClick={AddRowHandler} src={AddIcon}></img></label>
+                            </div>
                         </div>
-                        <div className='inv-width inv-float-left inv-textalign-left mbdisplaynone'>
-                            <label className="inv-label">PricePerUnit</label>
+                        <div className='inv-height-items h-68'>
+                            {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} MenuData={MenuItem} />)}
                         </div>
-                        <div className='inv-width inv-float-left inv-textalign-left'>
-                            <label className="inv-label">Amount</label>
+                        <div className='flex-1-1-auto d-flex font-w-900'>
+                            <label className='m-l-60 p-r-1'>Total:</label>
+                            <label className="">Rs </label>
+                            <label className="" >{Total}</label>
                         </div>
-                        <div className='inv-width inv-float-left inv-textalign-left'>
-                            <img alt="addimage" onClick={AddRowHandler} className="inv-img" src={AddIcon}></img>
+                        <div className={DisablePrint ? '' : ''} onClick={saveItemsAndPrintInvoice}>
+                            <CustomButton Text ="Generate Invoice" Color="white"></CustomButton>
+                            {/* <label className='inv-label inv-label-button'>Print</label> */}
                         </div>
-                    </div>
-                    <div className='inv-height-items'>
-                        {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} MenuData={MenuItem} />)}
-                    </div>
-                    <div className='inv-height-total' style={{position:"absolute",width:"100%",bottom:"0"}}>
+                        {/* <div className='inv-height-total w-100' style={{bottom:"0"}}>
                         <div className= {DisablePrint ? 'inv-pointerevent inv-printbutton ' : 'inv-printbutton'} onClick={saveItemsAndPrintInvoice}>
                             <label className='inv-label inv-label-button'>Print</label>
                         </div>
@@ -265,17 +276,18 @@ const Invoice = () => {
                             <label className="inv-float-right inv-labelcolor">Rs</label>
                             <label className='inv-float-right inv-margin-right inv-labelcolor' >Total:</label>
                         </div>
+                    </div> */}
                     </div>
-                </div>
 
-            }
-            {
-                (!IsInvoice) &&
-                <div className="inv-content">
-                    <Example InvoiceNumber ={invoiceNumber} InvoiceAmount={invoiceAmount} OnClose = {OnPrintClose} InvoiceInfo ={invoiceinfo} NumberOfItems = {nNumberOfItem}></Example>
-                </div>
-            }
-        </div>
+                }
+                {
+                    (!IsInvoice) &&
+                    <div className="inv-content">
+                        <Example InvoiceNumber={invoiceNumber} InvoiceAmount={invoiceAmount} OnClose={OnPrintClose} InvoiceInfo={invoiceinfo} NumberOfItems={nNumberOfItem}></Example>
+                    </div>
+                }
+            </div>
+        </React.Fragment>
     );
 }
 

@@ -15,9 +15,9 @@ const GenerateBill = (props) =>
         <React.Fragment>
             <Title Title={config.RESOURCES.GENERATEINVOICE} BackButtonClick={onBackButtonClickHandler} />
             {/* <span className="mbdisplaynone"><label className='gnb-label'>Genrate Invoice</label></span> */}
-            <div className="justify_content_center">
-                <div className="container">
-                    {/* <Invoice /> */}
+            <div className="justify_content_center h-93">
+                <div className="container h-100">
+                    <Invoice />
                 </div>
             </div>
 
