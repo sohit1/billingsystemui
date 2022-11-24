@@ -1,4 +1,3 @@
-
 .common-divheight
 {
     height: 100%;
@@ -112,7 +111,19 @@
 {
     .container {
         max-width: 1140px;
+        max-height:90%;
     }
+}
+
+.container
+{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    max-height:90%;
 }
 
 
@@ -136,10 +147,7 @@
     {
         display: block;
     }
-    .mbdisplaynone
-    {
-        display: none;
-    }
+
     .mb-title {
         margin-bottom: 5%;
         margin-top: 2%;
@@ -157,6 +165,13 @@
         flex: 0 0 41.66667%;
         max-width: 41.66667%;
     }
+
+    .content{
+        height:100%;
+        width:100%;
+        display: flex;
+    }
+
 }
 
 @media (min-width: 768px)
@@ -347,6 +362,39 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
     width: 50% !important;
 }
 
+.w-100 {
+    width: 100% !important;
+}
+
+.w-90 {
+    width: 90% !important;
+}
+
+.h-100
+{
+    height: 100%!important;
+}
+
+.h-95
+{
+    height: 95% !important;
+}
+
+.br-10{
+    border-radius: 10px;
+}
+
+.bg-col-green
+{
+    background-color: #006666;
+}
+
+.p-t-5
+{
+    padding-top: 5%;
+
+}
+
 .text-left {
     text-align: left !important;
 }
@@ -451,11 +499,53 @@ input[type="checkbox" i] {
         text-align: right !important;
     }
 }
-
 .img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.justify_content_center
+{
+    justify-content: center !important;
+}
+
+.f-direction-column
+{
+    flex-direction: column !important;;
+}
+
+.m-t-b-l
+{
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+@media (max-width: 991px)
+{
+    .content{
+        height:100%;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mbdisplay
+    {
+        display: block;
+    }
+
+    .mbdisplaynone
+    {
+        display: none;
+    }
+
+    .w-mv-100
+    {
+        width: 100% !important;
+
+    }
 }
 
 
