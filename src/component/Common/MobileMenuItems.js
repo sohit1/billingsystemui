@@ -12,11 +12,11 @@ const MobileMenuItems = (props) =>
         props.sideTabClickHandler(config.RESOURCES.CHECKINVOICE);
     }
     return (
-        <div className="gnb-wdthgt" style={{width:"100%"}}>
+        <div className="container mbdisplay w-100 h-100 justify_content_center">
             <div style={{height:"5%",textAlign:"center"}}>
                 <span><label className='gnb-label'>Click on page link below</label></span>
             </div>
-            <div style={{height:"70%",margin:"10%",paddingTop:"5%",backgroundColor:"#006666",borderRadius:"10px"}}>
+            <div className="h-95 br-10 bg-col-green p-t-5">
                 <div className='white-background mmi-buttons' style={{}} >
                     <table style={{ height: "100%" }}>
                         <tbody>

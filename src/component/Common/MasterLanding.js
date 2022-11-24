@@ -41,27 +41,27 @@ const MasterLanding = (props) => {
 
     return (
         <div className="divheight">
-            <MainHeader IsLogout = {mainHeaderEventHandler}></MainHeader>
+            <MainHeader IsLogout={mainHeaderEventHandler}></MainHeader>
             <div className="content">
-                <SideTab sideTabClickHandler ={sideTabClickHandler}/>
-                {
-                    sideTabMenuItem === config.RESOURCES.GENERATEINVOICE &&
-                    <GenerateBill BackButtonClick ={onBackButtonClickHandler}></GenerateBill>
-                }
-                {
-                    sideTabMenuItem === config.RESOURCES.CHECKINVOICE &&
-                    <BillInfo BackButtonClick ={onBackButtonClickHandler}/>
-                }
-                {
-                    sideTabMenuItem === "" &&
-                    <MobileMenuItems sideTabClickHandler ={sideTabClickHandler}/>
-                }
-                {
-                    sideTabMenuItem === config.RESOURCES.EMPLOYEE &&
-                    <ManageEmployee BackButtonClick ={onBackButtonClickHandler}/>
-                }
-                
-
+                <SideTab sideTabClickHandler={sideTabClickHandler} />
+                <div className="d-flex w-90 f-direction-column w-mv-100 h-100">
+                    {
+                        sideTabMenuItem === config.RESOURCES.GENERATEINVOICE &&
+                        <GenerateBill BackButtonClick={onBackButtonClickHandler}></GenerateBill>
+                    }
+                    {
+                        sideTabMenuItem === config.RESOURCES.CHECKINVOICE &&
+                        <BillInfo BackButtonClick={onBackButtonClickHandler} />
+                    }
+                    {
+                        sideTabMenuItem === "" &&
+                        <MobileMenuItems sideTabClickHandler={sideTabClickHandler} />
+                    }
+                    {
+                        sideTabMenuItem === config.RESOURCES.EMPLOYEE &&
+                        <ManageEmployee BackButtonClick={onBackButtonClickHandler} />
+                    }
+                </div>
             </div>
             
         </div>
