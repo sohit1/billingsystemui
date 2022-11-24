@@ -7,7 +7,7 @@ const Title = (props) => {
     }
     return (
         <div className='w-100 m-t-b-l h-7'>
-            <table>
+            <table className='mbdisplaynone'>
                 <tr>
                     <td className='mbdisplay'>
                         <span>
@@ -23,7 +23,17 @@ const Title = (props) => {
                         <span><label className='gnb-label'></label></span>
                     </td>
                 </tr>
-            </table>
+            </table>           
+            <div className="h-100 w-100 mbdisplay" style={{fontweight:"bold"}}>
+                <div className='w-20 h-100' style={{float:"left"}}>
+                        <label className=''>
+                            <img src={BackIcon} alt="back" onClick={onBackButtonClickHandler}></img>
+                        </label>
+                </div>
+                <div className='w-80 h-100 max-w-50 m-auto d-flex'>
+                    <span><label style={{ fontWeight: "bold"}} className='lbl-col-green'>{props.Title}</label></span>
+                </div>
+            </div>
         </div>
 
     );

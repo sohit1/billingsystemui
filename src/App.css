@@ -30,6 +30,7 @@
 .divheight
 {
   height: 100%;
+  overflow: hidden;
 }
 
 @keyframes App-logo-spin {
