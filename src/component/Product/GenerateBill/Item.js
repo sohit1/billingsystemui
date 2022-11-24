@@ -55,23 +55,23 @@ const Item = (props) => {
     }
 
     return (
-        <div className='m-l-1 h-10 m-b-1 d-flex'>
-            <div className='itm-width'>
+        <div className='h-10 m-b-1 d-flex'>
+            <div className='w-25 f-md-2_0_20'>
                 <select onChange={selectItemHandler} className='itm-select1-width'>
                     {MenuItems.map(items => <option value={items.itemId + "_" + items.pricePerUnit+"_"+items.itemName} key={items.itemId}>{items.itemName}</option>)}
                 </select>
                 {/* <input className="itm-input" type="text" name="item"></input> */}
             </div>
-            <div className='itm-width'>
+            <div className='w-25 w-md-18 m-1-6px'>
                 <input onChange={QyantityHandler} className="itm-input" type="text" name="Quantity"></input>
             </div>
-            <div className='itm-width mbdisplaynone'>
-                <label className="itm-label">{priceperunit}</label>
+            <div className='w-25 w-md-18 d-flex'>
+                <label className="m-auto-0 f-md-2">{priceperunit}</label>
             </div>
-            <div className='itm-width'>
-                <label className="itm-label">{Amount}</label>
+            <div className='w-25 w-md-18 d-flex'>
+                <label className="m-auto-0">{Amount}</label>
             </div>
-            <div className='itm-width itm-textalign-center'>
+            <div className='w-25 w-md-10'>
 
             </div>
         </div>

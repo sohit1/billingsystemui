@@ -1,5 +1,5 @@
 import './invoice.css';
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import Item from './Item'
 import AddIcon from '../../../images/Add-button.png'
 import InvoiceHeader from './InvoiceHeader';
@@ -13,7 +13,12 @@ import CustomButton from '../../Common/CustomButton';
 let nNumberOfItem = 0;
 const mylists = [];
 const listinvoiceinfo = [];
+
 const Invoice = () => {
+    console.log(localStorage.getItem('Screen'));
+    // useEffect(() =>{
+    //     const RESOURCES = localStorage.getItem('Screen') ? config.MOBILE.RESOURCES : config.RESOURCES;
+    // } ,[]);
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
     const [MenuItem, getMenuItems] = useState([]);
@@ -22,6 +27,8 @@ const Invoice = () => {
     const [invoiceNumber ,setInvoiceNumber] = useState("");
     const [invoiceAmount ,setInvoiceAmount] = useState("");
     const [DisablePrint ,setDisablePrint] = useState(false);
+    const [RESOURCES ,setResources] = useState(localStorage.getItem('Screen') =='true' ? config.MOBILE.RESOURCES : config.RESOURCES);
+    console.log(RESOURCES);
 
     useState(()=>
     {
@@ -239,23 +246,23 @@ const Invoice = () => {
                             <InvoiceHeader></InvoiceHeader>
                         </div>
                         <div className='m-l-1 h-6 d-flex invoice-header'>
-                            <div className='w-20'>
-                                <label className="">Item</label>
+                            <div className='w-20 f-md-2_0_20'>
+                                <label className="">{RESOURCES.ITEM}</label>
                             </div>
-                            <div className='w-20 m-l-6px'>
-                                <label className="">Quantity</label>
+                            <div className='w-20 m-l-6px w-md-18'>
+                                <label className="">{RESOURCES.QUANTITY}</label>
                             </div>
-                            <div className='w-20 mbdisplaynone'>
-                                <label className="">PricePerUnit</label>
+                            <div className='w-20 w-md-18'>
+                                <label className="">{RESOURCES.PRICEPERUNIT}</label>
                             </div>
-                            <div className='w-20'>
-                                <label className="">Amount</label>
+                            <div className='w-20 w-md-18'>
+                                <label className="">{RESOURCES.AMOUNT}</label>
                             </div>
-                            <div className='w-20'>
+                            <div className='w-20 w-md-10'>
                                 <label className="h-100"><img alt="addimage" onClick={AddRowHandler} src={AddIcon}></img></label>
                             </div>
                         </div>
-                        <div className='inv-height-items h-68'>
+                        <div className='inv-height-items h-68 m-l-1'>
                             {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} MenuData={MenuItem} />)}
                         </div>
                         <div className='flex-1-1-auto d-flex font-w-900'>
@@ -264,7 +271,7 @@ const Invoice = () => {
                             <label className="" >{Total}</label>
                         </div>
                         <div className={DisablePrint ? '' : ''} onClick={saveItemsAndPrintInvoice}>
-                            <CustomButton Text ="Generate Invoice" Color="white"></CustomButton>
+                            <CustomButton Text ="Generate Invoice" Color="white" BorderRadius="20px 20px 0px 0px"></CustomButton>
                             {/* <label className='inv-label inv-label-button'>Print</label> */}
                         </div>
                         {/* <div className='inv-height-total w-100' style={{bottom:"0"}}>

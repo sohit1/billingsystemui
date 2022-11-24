@@ -20,7 +20,11 @@
             "BILLAMOUNT": "Amt",
             "CREATEDDATE":"Date",
             "USERID":"#Uid",
-            "EMPLOYEE":"Manage Employee"
+            "EMPLOYEE":"Manage Employee",
+            "QUANTITY": "Qty",
+            "PRICEPERUNIT": "PerUnit",
+            "AMOUNT": "Amt",
+            "ITEM": "Item"
         }
     },
     "BUSINESS_TITLE":
@@ -35,16 +39,20 @@
     },
     "RESOURCES":
     {
-        "GENERATEINVOICE":"Generate Invoice",
-        "CHECKINVOICE":"Check Invoice",
-        "VIEWBILLS":"View Bills",
-        "FROMDATE":"From Date",
-        "TODATE":"To Date",
+        "GENERATEINVOICE": "Generate Invoice",
+        "CHECKINVOICE": "Check Invoice",
+        "VIEWBILLS": "View Bills",
+        "FROMDATE": "From Date",
+        "TODATE": "To Date",
         "BILLNO": "#BillNo",
         "BILLAMOUNT": "Bill Amount",
-        "CREATEDDATE":"Created Date",
-        "USERID":"#UserId",
-        "EMPLOYEE":"Manage Employee",
-        "ATTENDANCE":"Attendance"
+        "CREATEDDATE": "Created Date",
+        "USERID": "#UserId",
+        "EMPLOYEE": "Manage Employee",
+        "ATTENDANCE": "Attendance",
+        "QUANTITY": "Quantity",
+        "PRICEPERUNIT": "PricePerUnit",
+        "AMOUNT": "Amount",
+        "ITEM": "Item"
     }
 }

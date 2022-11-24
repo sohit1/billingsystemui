@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react';
+import {useState , useEffect} from 'react';
 import LandingPage from './component/Product/LandingPage.js';
 import MasterLanding from './component/Common/MasterLanding.js';
 
@@ -7,6 +7,9 @@ function App() {
   const [State,setState] = useState("LandingPage");
   const [IsLoggedIn,setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    localStorage.setItem("Screen",window.outerWidth < 991 ? true : false);
+  });
   const fnSetIsLoggedIn =(param)=>
   {
     const token = localStorage.getItem('token-info');
@@ -42,6 +45,7 @@ function App() {
   }
   useState(state =>
     {
+      console.log('state change  ' +  window.innerHeight);
       fnSetIsLoggedIn();
     });
   return (
