@@ -42,7 +42,7 @@ const MasterLanding = (props) => {
     return (
         <div className="divheight">
             <MainHeader IsLogout={mainHeaderEventHandler}></MainHeader>
-            <div className="content">
+            <div className="content h-93">
                 <SideTab sideTabClickHandler={sideTabClickHandler} />
                 <div className="d-flex w-90 f-direction-column w-mv-100 h-100">
                     {

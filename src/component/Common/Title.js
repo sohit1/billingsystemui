@@ -6,7 +6,7 @@ const Title = (props) => {
         props.BackButtonClick();
     }
     return (
-        <div className='w-100 m-t-b-l'>
+        <div className='w-100 m-t-b-l h-7'>
             <table>
                 <tr>
                     <td className='mbdisplay'>
