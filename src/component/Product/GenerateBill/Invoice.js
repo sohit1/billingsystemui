@@ -15,10 +15,6 @@ const mylists = [];
 const listinvoiceinfo = [];
 
 const Invoice = () => {
-    console.log(localStorage.getItem('Screen'));
-    // useEffect(() =>{
-    //     const RESOURCES = localStorage.getItem('Screen') ? config.MOBILE.RESOURCES : config.RESOURCES;
-    // } ,[]);
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
     const [MenuItem, getMenuItems] = useState([]);
@@ -28,7 +24,10 @@ const Invoice = () => {
     const [invoiceAmount ,setInvoiceAmount] = useState("");
     const [DisablePrint ,setDisablePrint] = useState(false);
     const [RESOURCES ,setResources] = useState(localStorage.getItem('Screen') =='true' ? config.MOBILE.RESOURCES : config.RESOURCES);
-    console.log(RESOURCES);
+    
+    useEffect(() => {
+        setResources(window.outerWidth < 991 ? config.MOBILE.RESOURCES : config.RESOURCES)
+    });
 
     useState(()=>
     {

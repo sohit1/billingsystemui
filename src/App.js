@@ -6,10 +6,21 @@ import MasterLanding from './component/Common/MasterLanding.js';
 function App() {
   const [State,setState] = useState("LandingPage");
   const [IsLoggedIn,setIsLoggedIn] = useState(false);
+  const [IsFlag,setFlag] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("Screen",window.outerWidth < 991 ? true : false);
-  });
+    function handleResize() {
+      localStorage.setItem("Screen",window.outerWidth < 991 ? true : false)
+      setFlag(window.outerWidth < 991 ? true : false);
+
+    }
+    console.log("called resize");
+    window.addEventListener('resize', handleResize)
+
+    return _ => {
+        window.removeEventListener('resize', handleResize)
+    }
+});
   const fnSetIsLoggedIn =(param)=>
   {
     const token = localStorage.getItem('token-info');
@@ -51,7 +62,7 @@ function App() {
   return (
       <div className= "divheight">
       {
-        IsLoggedIn && 
+        (IsLoggedIn && (IsFlag == true || IsFlag == false)) &&
          <MasterLanding IsMasterPage = {AppChangeState} />     
       }
       { 
