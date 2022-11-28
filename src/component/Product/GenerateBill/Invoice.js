@@ -67,30 +67,36 @@ const Invoice = () => {
     const getTotalAmountHandler = () => {
 
     }
-    const onQuantityChangeHandler = (p_value, p_id,p_itemId, p_pricePerUnit,p_Quantity,p_Flag) => {
-
-        const newData = mylist.map(data => {
-
-            //add new row of item
-            if (data.id === p_id) { //should change only for the rows getting updated.
-                if(p_Flag === 'OnItemChange')
-            {
-                return {
-                    ...data,totalItemAmount: parseInt(p_value),itemId:parseInt(p_itemId),pricePerUnit:parseInt(p_pricePerUnit),quantity: parseInt(p_Quantity)
-                };
-            }
-            else
-            {
-                return {
-                            ...data, totalItemAmount: parseInt(p_value),quantity: parseFloat(p_Quantity)
-                        };
-            }
+    const onQuantityChangeHandler = (p_value, p_id, p_itemId, p_pricePerUnit, p_Quantity, p_Flag) => {
+        
+        let newData;
+        if (p_Flag === 'OnItemDelete') {
+            console.log('Flag ' + p_Flag + ' id ' + p_id);
+            newData = mylist.filter((Items) => Items.id !== p_id)
+            console.log(newData);
         }
-        return data;
-           
+        else {
+            newData = mylist.map(data => {
+
+                //add new row of item
+                if (data.id === p_id) { //should change only for the rows getting updated.
+                    if (p_Flag === 'OnItemChange') {
+                        return {
+                            ...data, totalItemAmount: parseInt(p_value), itemId: parseInt(p_itemId), pricePerUnit: parseInt(p_pricePerUnit), quantity: parseInt(p_Quantity)
+                        };
+                    }
+                    else {
+                        return {
+                            ...data, totalItemAmount: parseInt(p_value), quantity: parseFloat(p_Quantity)
+                        };
+                    }
+                }
+                return data;
 
 
-        });
+
+            });
+        }
         setmylists(newData);
         const sum = newData.map(values => values.totalItemAmount).reduce((result, number) => result + number);
         setTotal(sum);
@@ -258,7 +264,7 @@ const Invoice = () => {
                                 <label className="">{RESOURCES.AMOUNT}</label>
                             </div>
                             <div className='w-20 w-md-10'>
-                                <label className="h-100"><img alt="addimage" onClick={AddRowHandler} src={AddIcon}></img></label>
+                                <label className="h-100"><img alt="addimage" className="cur-pointer" onClick={AddRowHandler} src={AddIcon}></img></label>
                             </div>
                         </div>
                         <div className='inv-height-items h-68 m-l-1'>
