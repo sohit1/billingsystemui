@@ -1,6 +1,7 @@
 import './Item.css';
 import { useState } from 'react'
 import config from '../../../config.json'
+import removeIcon from '../../../images/removeIcon.png'
 
 const Item = (props) => {
     const[priceperunit, setpriceperunit]  = useState('0');
@@ -18,6 +19,12 @@ const Item = (props) => {
                         return (prevstate.concat({itemName: "Select item", pricePerUnit: 0 ,itemId:"0000"}, ...props.MenuData ));
                     });
     });
+
+    const RemoveRowHandler =(event) =>
+    {
+        props.onQuantityChange(priceperunit * event.target.value ,props.itemsId,0,priceperunit,event.target.value,'OnItemDelete');
+    }
+
     const QyantityHandler =(event) =>
     {
         setQuantity(0);
@@ -71,8 +78,8 @@ const Item = (props) => {
             <div className='w-25 w-md-18 d-flex'>
                 <label className="m-auto-0">{Amount}</label>
             </div>
-            <div className='w-25 w-md-10'>
-
+            <div className='w-25 w-md-10 d-flex itm-al-center'>
+                <img alt="removeimage" src={removeIcon} className="h-50 cur-pointer" onClick={RemoveRowHandler}></img>
             </div>
         </div>
     );

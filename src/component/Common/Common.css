@@ -366,6 +366,10 @@ button:not(:disabled),
     height: 10%!important;
 
 }
+.h-50
+{
+    height:50% !important;
+}
 
 .h-68
 {
@@ -596,6 +600,11 @@ input[type="checkbox"] {
     text-align: center !important;
 }
 
+.itm-al-center
+{
+    align-items: center !important;;
+}
+
 .line-h-2_6{
     line-height: 2.6 !important;
 }
@@ -607,6 +616,10 @@ input[type="checkbox"] {
 .lbl-col-green
 {
     color: green ! important;
+}
+.cur-pointer
+{
+    cursor: pointer !important;
 }
 
 @media (min-width:360px) and (max-width: 460px) {
