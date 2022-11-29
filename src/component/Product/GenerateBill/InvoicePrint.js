@@ -1,10 +1,8 @@
 import "./Invoiceprint.css"
 import "./InvoiceHeader.css"
-import config from '../../../config.json'
 import ReactToPrint from "react-to-print";
-import Invoice from "./Invoice";
 import InvoiceHeader from "./InvoiceHeader";
-import React, { useRef } from "react";
+import React from "react";
 
 class ComponentToPrint extends React.Component {
     render() {
@@ -16,35 +14,33 @@ class ComponentToPrint extends React.Component {
     }
   }
 
-const ItemsRowContainer = (props) => {
+  class ComponentToPrintHidden extends React.Component {
+    render() {
+      return (
+          <React.Fragment>
+              <ItemsRowContainerHidden InvoiceNumber={this.props.InvoiceNumber} InvoiceAmount={this.props.InvoiceAmount} InvoiceInfo = {this.props.InvoiceInfo}/>
+          </React.Fragment>
+      );
+    }
+  }
+
+  const ItemsRowContainerHidden = (props) => {
     return (
         <React.Fragment>
             
-            <div className="billContent">
-                <div className="dvInvoiceHeader" style={{ paddingBottom: "2%" }}>
+            <div className="billContent col-black">
+                <div className="dvInvoiceHeader">
                     <InvoiceHeader></InvoiceHeader>
                 </div>
-                <div className="itemCashier">
-                    <table style={{borderSpacing:"0 1em",borderCollapse:"separate"}} className="tblItemHeader">
-                        <tr>
-                            <td className="">
-                                <span>Date : {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}  {new Date().getHours()}:{new Date().getMinutes()}</span>
-                            </td>
-                            <td>
-                                <span>Table No :#</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="">
-                                <span>Cashier : Abc</span>
-                            </td>
-                            <td>
-                                <span>Bill No: #{props.InvoiceNumber}</span>
-                            </td>
-                        </tr>
-                    </table>
+                <div className="br-btm-1 h-6 pd-1">
+                    <div className="w-60 float-l">
+                        <label className="col-black">Date : {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}  {new Date().getHours()}:{new Date().getMinutes()}</label>
+                    </div>
+                    <div className="w-40 float-r">
+                        <label className="col-black">Bill No: #{props.InvoiceNumber}</label>
+                    </div>
                 </div>
-                <div className="itemHeader">
+                <div className="itemHeader h-6">
                     <table className="tblItemHeader">
                         <tr>
                             <td className="tdItem">
@@ -63,61 +59,97 @@ const ItemsRowContainer = (props) => {
                         </tr>
                     </table>
                 </div>
-                <table className="tblItem">
-                    {props.InvoiceInfo.map(items => <ItemsRow ItemDetails={items}></ItemsRow>)}
-                </table>
-                <div className="dvborder"></div>
-                <table className="tblSubPrice">
-                    <tr>
-                        <td className="tdItem">
-                            <span></span>
-                        </td>
-                        <td>
-                            <span></span>
-                        </td>
-                        <td>
-                        <span>Sub Total :</span>
-                        </td>
-                        <td>
-                            <span>Rs {props.InvoiceAmount}</span>
-                        </td>
-                    </tr>
-                </table>
-                <div className="dvborder"></div>
-                <table className="tblSubPrice" style={{height: "10%"}}>
-                    <tr>
-                        <td className="tdItem">
-                            <span></span>
-                        </td>
-                        <td>
-                            <span>Others :</span>
-                        </td>
-                        <td>
-                        <span></span>
-                        </td>
-                        <td>
-                            <span></span>
-                        </td>
-                    </tr>
-                </table>
+                    <div className="m-btm-2 max-h-60">
+                        <table className="tblItem">
+                            {props.InvoiceInfo.map(items => <ItemsRow ItemDetails={items}></ItemsRow>)}
+                        </table>
+                    </div>
+                
                 <div className="dvborder"></div>
                 <div className="dvborder"></div>
-                <table className="tblSubPrice" style={{height: "5%"}}>
-                    <tr>
-                        <td className="tdItem">
-                            <span></span>
-                        </td>
-                        <td>
-                            <span style={{fontWeight:"bold"}}>Grand Total   :</span>
-                        </td>
-                        <td>
-                        <span></span>
-                        </td>
-                        <td>
-                            <span style={{fontWeight:"bold"}}>Rs {props.InvoiceAmount}</span>
-                        </td>
-                    </tr>
-                </table>
+                <div className="h-6 w-100 col-black">
+                    <table className="h-100">
+                        <tr>
+                            <td className="w-84 w-md-30">
+
+                            </td>
+                            <td>
+                                <span>
+                                    <label className="col-black">
+                                        Total : Rs {props.InvoiceAmount}
+                                    </label>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div className="dvborder"></div>
+                <div className="dvborder"></div>
+            </div>
+        </React.Fragment>
+
+    );
+}
+
+const ItemsRowContainer = (props) => {
+    return (
+        <React.Fragment>
+            
+            <div className="billContent col-black">
+                <div className="dvInvoiceHeader">
+                    <InvoiceHeader></InvoiceHeader>
+                </div>
+                <div className="br-btm-1 h-6 pd-1">
+                    <div className="w-60 float-l">
+                        <label>Date : {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}  {new Date().getHours()}:{new Date().getMinutes()}</label>
+                    </div>
+                    <div className="w-40 float-r">
+                        <label>Bill No: #{props.InvoiceNumber}</label>
+                    </div>
+                </div>
+                <div className="itemHeader h-6">
+                    <table className="tblItemHeader">
+                        <tr>
+                            <td className="tdItem">
+                                <span>Item</span>
+                            </td>
+                            <td>
+                                <span>Qty</span>
+                            </td>
+                            <td>
+                                <span>Price</span>
+
+                            </td>
+                            <td>
+                                <span>Amount</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                    <div className="ovf-auto m-btm-1 max-h-60">
+                        <table className="tblItem">
+                            {props.InvoiceInfo.map(items => <ItemsRow ItemDetails={items}></ItemsRow>)}
+                        </table>
+                    </div>
+                
+                <div className="dvborder"></div>
+                <div className="dvborder"></div>
+                <div className="h-6 w-100 col-black">
+                    <table className="h-100">
+                        <tr>
+                            <td className="w-84 w-md-30">
+
+                            </td>
+                            <td>
+                                <span>
+                                    <label>
+                                        Total : Rs {props.InvoiceAmount}
+                                    </label>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 <div className="dvborder"></div>
                 <div className="dvborder"></div>
             </div>
@@ -139,14 +171,30 @@ const ItemsRowContainer = (props) => {
 }
 
   class Example extends React.Component {
+    
     render() {
         const onPrintClose = (event) => {
+            console.log('NumberOfItems' , this.props.NumberOfItems);
             this.props.OnClose();
+        }
+
+        const PaperSize =(props) =>
+        {
+            console.log('NumberOfItems' , this.props.NumberOfItems);
+            if(this.props.NumberOfItems > 6)
+            {
+                return 6 + (this.props.NumberOfItems - 6) / 1.5;
+            }
+            return 6;
+            
         }
       return (
           <div className ="divMain">
+              <div style={{ display: "none" }}>
+                  <ComponentToPrintHidden InvoiceNumber = {this.props.InvoiceNumber} InvoiceAmount={this.props.InvoiceAmount} InvoiceInfo={this.props.InvoiceInfo} ref={el => (this.componentRef = el)} />
+              </div>
 
-              <ComponentToPrint InvoiceNumber = {this.props.InvoiceNumber} InvoiceAmount={this.props.InvoiceAmount} InvoiceInfo={this.props.InvoiceInfo} ref={el => (this.componentRef = el)} />
+              <ComponentToPrint InvoiceNumber = {this.props.InvoiceNumber} InvoiceAmount={this.props.InvoiceAmount} InvoiceInfo={this.props.InvoiceInfo} />
               <div className = "reacttoprint">
                   <ReactToPrint
                       trigger={() =>
@@ -156,9 +204,10 @@ const ItemsRowContainer = (props) => {
                               </div>
                     }
                       content={() => this.componentRef}
+                    //   content={() => }
                     //   pageStyle="print"
-                    // pageStyle={`@page {size: 6in ${this.props.NumberOfItems*2}in}`}
-                    // pageStyle="@page {size: 6in 14in}"
+                    pageStyle={`@page {size: 4in ${PaperSize()}in}`}
+                    //  pageStyle="@page {size: 4in 14in}"
                   />
                   <div className="btnClose" onClick={onPrintClose} >
                       <label className=''><span>Close</span></label>

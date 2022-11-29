@@ -5,8 +5,7 @@ import AddIcon from '../../../images/Add-button.png'
 import InvoiceHeader from './InvoiceHeader';
 // import InvoicePrint from './InvoicePrint';
 import config from '../../../config.json';
-import ReactToPrint from "react-to-print";
-import React, { useRef } from "react";
+import React from "react";
 import Example from './InvoicePrint';
 import CustomButton from '../../Common/CustomButton';
 
@@ -23,35 +22,34 @@ const Invoice = () => {
     const [invoiceNumber ,setInvoiceNumber] = useState("");
     const [invoiceAmount ,setInvoiceAmount] = useState("");
     const [DisablePrint ,setDisablePrint] = useState(false);
-    const [RESOURCES ,setResources] = useState(localStorage.getItem('Screen') =='true' ? config.MOBILE.RESOURCES : config.RESOURCES);
+    const [RESOURCES ,setResources] = useState(localStorage.getItem('Screen') ==='true' ? config.MOBILE.RESOURCES : config.RESOURCES);
     
     useEffect(() => {
         setResources(window.outerWidth < 991 ? config.MOBILE.RESOURCES : config.RESOURCES)
-    });
+    } ,[]);
 
-    useState(()=>
-    {
-         fetch(config.WEBAPI_URL+"product/getitems",
+    useState(() => {
+        fetch(config.WEBAPI_URL + "product/getitems",
             {
                 method: 'GET',
-                headers:{
-                    'Content-Type' : "application/json"
-                }           
+                headers: {
+                    'Content-Type': "application/json"
+                }
             }).then((response) => {
                 if (response.status !== 200) {
                     alert("Something went wrong");
                     return;
                 }
                 response.json().then((data) => {
-                    if(data.responseStatus.errorNo !== 0)
-                        {
-                            alert(data.responseStatus.errorMessage);
-                            return;
-                        }
+                    if (data.responseStatus.errorNo !== 0) {
+                        alert(data.responseStatus.errorMessage);
+                        return;
+                    }
                     getMenuItems(data.itemInfo);
                 });
             });
     });
+
     const AddRowHandler = () => {
 
         //Adding row of item to mylist
@@ -107,68 +105,68 @@ const Invoice = () => {
 
         return false;
     }
-   async function saveItemsAndPrintInvoice() {
-        if(!mylist.length > 0)
-        {
-            alert("Click on + button to add items to the bill");
-            return;
-        }
-        setDisablePrint(true);
-        let breturned = false;
-        mylist.forEach(element => {
-            if(ValidateIsEmpty(element.quantity))
-            {
-                alert("quantity can not be empty.");
-                breturned = true;
-                return;
-            }
-            if(element.quantity === 0)
-            {
-                alert("quantity can not be 0.");
-                breturned = true;
-                return;
-            }
-            if(element.itemId === 0)
-            {
-                alert("Please select item")
-                breturned = true;
-                return;
-            }
+//    async function saveItemsAndPrintInvoice() {
+//         if(!mylist.length > 0)
+//         {
+//             alert("Click on + button to add items to the bill");
+//             return;
+//         }
+//         setDisablePrint(true);
+//         let breturned = false;
+//         mylist.forEach(element => {
+//             if(ValidateIsEmpty(element.quantity))
+//             {
+//                 alert("quantity can not be empty.");
+//                 breturned = true;
+//                 return;
+//             }
+//             if(element.quantity === 0)
+//             {
+//                 alert("quantity can not be 0.");
+//                 breturned = true;
+//                 return;
+//             }
+//             if(element.itemId === 0)
+//             {
+//                 alert("Please select item")
+//                 breturned = true;
+//                 return;
+//             }
 
             
-        });
-        if(breturned)
-        {
-            alert("breturned");
-            setDisablePrint(false);
-            return;
-        }
-        var data =
-        {
-            "invoiceNo":0,
-            "invoiceDetails":mylist
-        }
+//         });
+//         if(breturned)
+//         {
+//             alert("breturned");
+//             setDisablePrint(false);
+//             return;
+//         }
+//         var data =
+//         {
+//             "invoiceNo":0,
+//             "invoiceDetails":mylist
+//         }
 
-       await fetch(config.WEBAPI_URL+"invoice/generateinvoice",
-        {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers:{
-                'Content-Type' : "application/json",
-                'Authorization': "Bearer "+localStorage.getItem('token-info')
-            }           
-        }).then((response) => {
-            if (response.status !== 200) {
-                alert("Something went wrong");
-                return;
-            }
-            response.json().then((data) => {
-                setmylists([]);
-                alert(data.responseStatus.errorMessage+" : #"+data.invoiceNo);
-            });
-        });
-        setDisablePrint(false);
-    }
+//        await fetch(config.WEBAPI_URL+"invoice/generateinvoice",
+//         {
+//             method: 'POST',
+//             body: JSON.stringify(data),
+//             headers:{
+//                 'Content-Type' : "application/json",
+//                 'Authorization': "Bearer "+localStorage.getItem('token-info')
+//             }           
+//         }).then((response) => {
+//             if (response.status !== 200) {
+//                 alert("Something went wrong");
+//                 return;
+//             }
+//             response.json().then((data) => {
+//                 setmylists([]);
+//                 alert(data.responseStatus.errorMessage+" : #"+data.invoiceNo);
+//             });
+//         });
+//         setDisablePrint(false);
+//     }
     //TestFunction
      async function saveItemsAndPrintInvoicetest () {
        
@@ -211,6 +209,56 @@ const Invoice = () => {
             "invoiceNo":0,
             "invoiceDetails":mylist
         }
+        //  setmylists([]);
+        //  alert(data.responseStatus.errorMessage + " : #" + data.invoiceNo);
+        // nNumberOfItem = 20;
+        //  let listinvoiceinfo = [];
+        //  let itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        // //  itemobj = {"itemName" : "xyz","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        // //  listinvoiceinfo.push(itemobj);
+        //  nNumberOfItem = listinvoiceinfo.length;
+        //  setInvoiceInfo(listinvoiceinfo);
+        //  setInvoiceNumber("0001");
+        //  setInvoiceAmount("1000");
+        //  setInvoice(false);
+        //  console.log('invoiceDetails ' + data.invoiceDetails);
         await fetch(config.WEBAPI_URL+"invoice/generateinvoice",
         {
             method: 'POST',
@@ -231,6 +279,7 @@ const Invoice = () => {
                 setInvoiceNumber(data.invoiceNo);
                 setInvoiceAmount(data.invoiceAmount);
                 setInvoice(false);
+                console.log('invoiceDetails ' + data.invoiceDetails);
             });
             
         });
@@ -275,7 +324,7 @@ const Invoice = () => {
                             <label className="">Rs </label>
                             <label className="" >{Total}</label>
                         </div>
-                        <div className={DisablePrint ? '' : ''} onClick={saveItemsAndPrintInvoice}>
+                        <div className={DisablePrint ? '' : ''} onClick={saveItemsAndPrintInvoicetest}>
                             <CustomButton Text ="Generate Invoice" Color="white" BorderRadius="20px 20px 0px 0px"></CustomButton>
                             {/* <label className='inv-label inv-label-button'>Print</label> */}
                         </div>
@@ -294,7 +343,7 @@ const Invoice = () => {
                 }
                 {
                     (!IsInvoice) &&
-                    <div className="inv-content">
+                    <div className="inv-content h-100">
                         <Example InvoiceNumber={invoiceNumber} InvoiceAmount={invoiceAmount} OnClose={OnPrintClose} InvoiceInfo={invoiceinfo} NumberOfItems={nNumberOfItem}></Example>
                     </div>
                 }
