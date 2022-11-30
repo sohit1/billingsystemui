@@ -445,6 +445,11 @@ button:not(:disabled),
     margin-bottom: 2% !important;
 }
 
+.m-top-4
+{
+    margin-bottom: 4% !important;
+}
+
 .br-10 {
     border-radius: 10px;
 }
@@ -492,6 +497,14 @@ button:not(:disabled),
 .ovf-auto
 {
     overflow: auto !important;
+}
+.font-family-initial
+{
+    font-family: initial!important;
+}
+.font-size
+{
+    font-size: 18px !important;
 }
 
 .checkbox-wrap {
@@ -818,5 +831,10 @@ input[type="checkbox"] {
 
     .w-md-30 {
         width:30% !important;
+     }
+
+     .max-w-md-60
+     {
+        max-width:60% !important;
      }
 }

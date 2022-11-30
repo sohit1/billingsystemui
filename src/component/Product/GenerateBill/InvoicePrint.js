@@ -3,6 +3,8 @@ import "./InvoiceHeader.css"
 import ReactToPrint from "react-to-print";
 import InvoiceHeader from "./InvoiceHeader";
 import React from "react";
+import QrCode from '../../../images/QRCode.jpeg';
+import CustomButton from '../../Common/CustomButton';
 
 class ComponentToPrint extends React.Component {
     render() {
@@ -85,6 +87,10 @@ class ComponentToPrint extends React.Component {
                 </div>
                 <div className="dvborder"></div>
                 <div className="dvborder"></div>
+                <div className="max-w-50 m-l-auto m-r-auto col-black txt-al-center m-top-4">
+                    <label className="m-btm-1 col-black ">Scan to pay</label>
+                    <label className="h-100"><img  src={QrCode}></img></label>
+                </div>
             </div>
         </React.Fragment>
 
@@ -152,6 +158,7 @@ const ItemsRowContainer = (props) => {
                 </div>
                 <div className="dvborder"></div>
                 <div className="dvborder"></div>
+                
             </div>
         </React.Fragment>
 
@@ -199,8 +206,9 @@ const ItemsRowContainer = (props) => {
                   <ReactToPrint
                       trigger={() =>
                         
-                              <div className="btnPrint">
-                                  <label className=''><a href="#">Print</a></label>
+                              <div className="w-25 float-l">
+                                 <CustomButton Text ="Print" Color="white" BorderRadius="20px 20px 20px 20px"></CustomButton>
+                                  {/* <label className=''><a href="#">Print</a></label> */}
                               </div>
                     }
                       content={() => this.componentRef}
@@ -209,8 +217,9 @@ const ItemsRowContainer = (props) => {
                     pageStyle={`@page {size: 4in ${PaperSize()}in}`}
                     //  pageStyle="@page {size: 4in 14in}"
                   />
-                  <div className="btnClose" onClick={onPrintClose} >
-                      <label className=''><span>Close</span></label>
+                  <div className="w-25 float-r " onClick={onPrintClose} >
+                      <CustomButton Text ="Close" Color="white" BorderRadius="15px 15px 15px 15px"></CustomButton>
+                      {/* <label className=''><span>Close</span></label> */}
                   </div>
               </div>
               
