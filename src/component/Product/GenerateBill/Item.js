@@ -1,5 +1,5 @@
 import './Item.css';
-import { useState } from 'react'
+import { useState , useEffect , useMemo } from 'react'
 import config from '../../../config.json'
 import removeIcon from '../../../images/removeIcon.png'
 
@@ -7,18 +7,42 @@ const Item = (props) => {
     const[priceperunit, setpriceperunit]  = useState('0');
     const[Amount, setAmount]  = useState(0);
     const[Quantity, setQuantity] = useState(0);
-    const[MenuItems, setMenuItems] = useState([
-        // {
-        //     sItemName: "Select item", nAmount: 0,sItemId:""
-        // }
-    ]);
-    useState(()=>
-    {
-            setMenuItems((prevstate)=>
-                    {
-                        return (prevstate.concat({itemName: "Select item", pricePerUnit: 0 ,itemId:"0000"}, ...props.MenuData ));
+    const[MenuItems, setMenuItems] = useState([]);
+
+    useEffect(() => {
+        if(localStorage.getItem('MenuItems') !== null && localStorage.getItem('MenuItems').length > 0)
+        {
+            setMenuItems((prevstate) => {
+                return (prevstate.concat({ itemName: "Select item", pricePerUnit: 0, itemId: "0000" }, ...JSON.parse(localStorage.getItem('MenuItems'))));
+            });
+        }
+        else
+        {
+        fetch(config.WEBAPI_URL + "product/getitems",
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).then((response) => {
+                if (response.status !== 200) {
+                    alert("Something went wrong");
+                    return;
+                }
+                response.json().then((data) => {
+                    if (data.responseStatus.errorNo !== 0) {
+                        alert(data.responseStatus.errorMessage);
+                        return;
+                    }
+                    localStorage.setItem('MenuItems' , JSON.stringify(data.itemInfo));
+                    setMenuItems((prevstate) => {
+                        return (prevstate.concat({ itemName: "Select item", pricePerUnit: 0, itemId: "0000" }, ...data.itemInfo));
                     });
-    });
+                });
+            });
+        }
+
+    }, []);
 
     const RemoveRowHandler =(event) =>
     {

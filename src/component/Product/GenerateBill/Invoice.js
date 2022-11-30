@@ -16,7 +16,6 @@ const listinvoiceinfo = [];
 const Invoice = () => {
     const [mylist, setmylists] = useState(mylists);
     const [Total, setTotal] = useState(0);
-    const [MenuItem, getMenuItems] = useState([]);
     const [IsInvoice,setInvoice] = useState(true);
     const [invoiceinfo ,setInvoiceInfo] = useState(listinvoiceinfo);
     const [invoiceNumber ,setInvoiceNumber] = useState("");
@@ -25,39 +24,19 @@ const Invoice = () => {
     const [RESOURCES ,setResources] = useState(localStorage.getItem('Screen') ==='true' ? config.MOBILE.RESOURCES : config.RESOURCES);
     
     useEffect(() => {
-        setResources(window.outerWidth < 991 ? config.MOBILE.RESOURCES : config.RESOURCES)
-    } ,[]);
 
-    useState(() => {
-        fetch(config.WEBAPI_URL + "product/getitems",
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': "application/json"
-                }
-            }).then((response) => {
-                if (response.status !== 200) {
-                    alert("Something went wrong");
-                    return;
-                }
-                response.json().then((data) => {
-                    if (data.responseStatus.errorNo !== 0) {
-                        alert(data.responseStatus.errorMessage);
-                        return;
-                    }
-                    getMenuItems(data.itemInfo);
-                });
-            });
-    });
+        setResources(window.outerWidth < 991 ? config.MOBILE.RESOURCES : config.RESOURCES);
+
+    } ,[]);
 
     const AddRowHandler = () => {
 
         //Adding row of item to mylist
         setmylists((prevmylist) => {
-            return (prevmylist.concat({ id: Date.now(),itemId:0, totalItemAmount: 0,pricePerUnit:"",quantity: 0, ...prevmylist }));
+            return (prevmylist.concat({ id: Date.now(), itemId: 0, totalItemAmount: 0, pricePerUnit: "", quantity: 0, ...prevmylist }));
         });
-
     }
+
     function OnPrintClose()
     {
         setInvoice(true);
@@ -317,7 +296,7 @@ const Invoice = () => {
                             </div>
                         </div>
                         <div className='inv-height-items h-68 m-l-1'>
-                            {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id} MenuData={MenuItem} />)}
+                            {mylist.map(items => <Item onQuantityChange={onQuantityChangeHandler} itemsId={items.id} ptotalAmount={getTotalAmountHandler} key={items.id}/>)}
                         </div>
                         <div className='flex-1-1-auto d-flex font-w-900'>
                             <label className='m-l-60 p-r-1'>Total:</label>
