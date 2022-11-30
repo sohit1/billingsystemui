@@ -46,6 +46,7 @@ function App() {
     else
       {
         setIsLoggedIn(false);
+        localStorage.removeItem('MenuItems');
       }
       
   }
