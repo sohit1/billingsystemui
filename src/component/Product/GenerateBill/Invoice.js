@@ -189,8 +189,6 @@ const Invoice = () => {
             "invoiceDetails":mylist
         }
         //  setmylists([]);
-        //  alert(data.responseStatus.errorMessage + " : #" + data.invoiceNo);
-        // nNumberOfItem = 20;
         //  let listinvoiceinfo = [];
         //  let itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
         //  listinvoiceinfo.push(itemobj);
@@ -200,38 +198,52 @@ const Invoice = () => {
         //  listinvoiceinfo.push(itemobj);
         //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
         //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
-        // //  itemobj = {"itemName" : "xyz","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
-        // //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "xyz","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "abc","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
+        //  itemobj = {"itemName" : "xyz","quantity":"2","itemPrice":100,"totalItemAmount" : "200"}
+        //  listinvoiceinfo.push(itemobj);
         //  nNumberOfItem = listinvoiceinfo.length;
         //  setInvoiceInfo(listinvoiceinfo);
         //  setInvoiceNumber("0001");
@@ -258,7 +270,6 @@ const Invoice = () => {
                 setInvoiceNumber(data.invoiceNo);
                 setInvoiceAmount(data.invoiceAmount);
                 setInvoice(false);
-                console.log('invoiceDetails ' + data.invoiceDetails);
             });
             
         });
