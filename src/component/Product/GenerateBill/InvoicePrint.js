@@ -219,7 +219,6 @@ const ItemsRowContainer = (props) => {
                   />
                   <div className="w-25 float-r " onClick={onPrintClose} >
                       <CustomButton Text ="Close" Color="white" BorderRadius="15px 15px 15px 15px"></CustomButton>
-                      {/* <label className=''><span>Close</span></label> */}
                   </div>
               </div>
               
