@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.css": "/newbillingsystemui/static/css/main.023c08b0.css",
-    "main.js": "/newbillingsystemui/static/js/main.ca168149.js",
+    "main.css": "/newbillingsystemui/static/css/main.dcddd3c2.css",
+    "main.js": "/newbillingsystemui/static/js/main.00f531a7.js",
     "static/media/Organisation.jpg": "/newbillingsystemui/static/media/Organisation.608c22be0996832d213f.jpg",
     "static/media/GenerateBill.png": "/newbillingsystemui/static/media/GenerateBill.bd95ed5d4a92f75aa193.png",
+    "static/media/QRCode.jpeg": "/newbillingsystemui/static/media/QRCode.dafc6ecf145eda3c886f.jpeg",
     "static/media/Add-button.png": "/newbillingsystemui/static/media/Add-button.98945888d29c615ecb21.png",
+    "static/media/bg-1.jpg": "/newbillingsystemui/static/media/bg-1.4921dcff97f8cde306c0.jpg",
+    "static/media/removeIcon.png": "/newbillingsystemui/static/media/removeIcon.4ae1f0653e5b30e77d15.png",
     "static/media/attendance.png": "/newbillingsystemui/static/media/attendance.bc6198f467adffa1fe7d.png",
     "index.html": "/newbillingsystemui/index.html",
-    "main.023c08b0.css.map": "/newbillingsystemui/static/css/main.023c08b0.css.map",
-    "main.ca168149.js.map": "/newbillingsystemui/static/js/main.ca168149.js.map"
+    "main.dcddd3c2.css.map": "/newbillingsystemui/static/css/main.dcddd3c2.css.map",
+    "main.00f531a7.js.map": "/newbillingsystemui/static/js/main.00f531a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.023c08b0.css",
-    "static/js/main.ca168149.js"
+    "static/css/main.dcddd3c2.css",
+    "static/js/main.00f531a7.js"
   ]
 }
