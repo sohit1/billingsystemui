@@ -208,7 +208,6 @@ const ItemsRowContainer = (props) => {
                         
                               <div className="w-25 float-l">
                                  <CustomButton Text ="Print" Color="white" BorderRadius="20px 20px 20px 20px"></CustomButton>
-                                  {/* <label className=''><a href="#">Print</a></label> */}
                               </div>
                     }
                       content={() => this.componentRef}
